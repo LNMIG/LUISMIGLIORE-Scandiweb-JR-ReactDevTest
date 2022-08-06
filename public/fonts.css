@@ -10,4 +10,8 @@
     font-family: 'Roboto Condensed';
     font-style: normal;
     src: local('Roboto Condensed'), local('Roboto-Condensed'), url('../src/assets/Roboto-Condensed.ttf') format('ttf');
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    src: local('Source Sans Pro'), local('Source-Sans-Pro'), url('../src/assets/SourceSansPro-Regular.ttf') format('ttf');
 }
