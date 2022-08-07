@@ -3,7 +3,7 @@ import {
     GET_ALL_CATEGORIES,
     GET_PRODUCT_BY_ID,
     GET_PRODUCTS_BY_CATEGORY,
-    GET_PAGINATION_DATA,
+    POST_PAGINATION_DATA,
     POST_CURRENT_CATEGORY,
     POST_CURRENT_SELECTED_PRODUCTS,
     POST_CURRENT_SELECTED_CURRENCY,
@@ -47,7 +47,7 @@ function reducer (state = initialState, action) {
             ...state,
             productDetails: action.payload
         }
-        case GET_PAGINATION_DATA:
+        case POST_PAGINATION_DATA:
         return {
         ...state,
         paginationData: action.payload

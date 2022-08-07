@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import getAllCategories from '../../redux/actions/getAllCategories.js';
 import getProductsByCategory from '../../redux/actions/getProductsByCategory.js';
 import postSelectedProductsByCategory from '../../redux/actions/postSelectedProductsByCategory.js';
+import Button from './selector-Button';
+import ItemList from './selector-ItemList';
 import './category-Selector.css';
 
 class CategorySelector extends Component {
@@ -38,7 +40,7 @@ class CategorySelector extends Component {
           }
     }
 
-    onClickButton = selectedCategory => {
+    onClickButton = (selectedCategory) => {
         this.setState(prevState => ({...prevState, currentCategory: selectedCategory.target.value }))
         this.setState(prevState => ({...prevState, isOpen: !this.state.isOpen}));
 
@@ -81,64 +83,10 @@ class CategorySelector extends Component {
 
         return (
           <div className='dropdown_wrapper' onKeyUp={this.keyHandler}>
-            <button
-              className='dropdown_activator'
-              aria-haspopup="true"
-              aria-controls={`Showing "${this.state.currentCategory.toLowerCase()}"`}
-              onClick={this.onClickHandler}
-              ref={this.activatorRef}
-            >
-              {`Showing "${this.state.currentCategory.toLowerCase()}"`}
-              {this.vector ?
-              (
-                this.state.isOpen ?
-                (
-                  <svg
-                    height="24"
-                    fill="rgb(70,70,70)"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="m0 0h24v24h-24z" fill="none" />
-                    <path d="m7.41 15.41 4.59-4.58 4.59 4.58 1.41-1.41-6-6-6 6z" />
-                  </svg>
-                )
-                :
-                (
-                  <svg
-                    height="24"
-                    fill="rgb(70,70,70)"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="m0 0h24v24h-24z" fill="none" />
-                    <path d="m7.41 8.59 4.59 4.58 4.59-4.58 1.41 1.41-6 6-6-6z" />
-                  </svg>
-                )
-              )
-              :
-                null
-              }
-            </button>
-
-            {categories && categories.length > 0 ?
-            <ul
-              ref={this.dropdownListRef}
-              className={`dropdown_item_list ${this.state.isOpen ? 'active' : ""} `}
-              // onMouseLeave={this.onClickHandler}
-            >
-              {categories.map((category, index) => {
-                return (
-                  <li className='item_list' key={index}>
-                    <button type='button' value={category.name} onClick={this.onClickButton}>{category.name}</button>
-                  </li>
-                );
-              })}
-            </ul>
-            :
-             <div>Loading...</div>
+            <Button state={this.state} onClick={this.onClickHandler} refference={this.activatorRef} vector={this.vector}/>
+            {categories && categories.length > 0
+            ? < ItemList dropdownListRef={this.dropdownListRef} state={this.state} categories={categories} onClick={this.onClickButton}/>
+            : <div>Loading...</div>
             }
           </div>
         )
