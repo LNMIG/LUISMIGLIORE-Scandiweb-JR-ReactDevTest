@@ -1,0 +1,13 @@
+.productDetailContainer .second .grouped .description{
+    width: 100%;
+    height: fit-content;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 159.96%;
+
+    /* --c-text */
+    color: #1D1F22;
+}

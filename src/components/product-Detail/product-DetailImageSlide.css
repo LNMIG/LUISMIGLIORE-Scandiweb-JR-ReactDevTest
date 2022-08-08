@@ -1,0 +1,31 @@
+.productDetailContainer .first {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+
+    position: absolute;
+    width: 80px;
+    height: 595px;
+    left: 98px;
+    top: 80px;
+}
+.productDetailContainer .first .button {
+    width: 80px;
+    height:80px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    
+    background: #C4C4C4;
+    cursor: pointer;
+}
+.productDetailContainer .first .button:hover {
+    box-shadow: 0px 0px 25px grey;
+}
+.productDetailContainer .first .button .imageSide {
+    width: 80px;
+    height:80px;
+    background: #C4C4C4;
+}
