@@ -14,7 +14,7 @@ const initialState = {
     allCategories: [],
     allCurrencies: [],
     productsByCategory: [],
-    paginationData: {},
+    paginationData: [],
     productDetails: {},
     postedCurrentCategory: {},
     postedCurrentCurrency: [],

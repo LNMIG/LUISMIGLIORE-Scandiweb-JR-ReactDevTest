@@ -86,7 +86,7 @@ class CategorySelector extends Component {
             <Button state={this.state} onClick={this.onClickHandler} refference={this.activatorRef} vector={this.vector}/>
             {categories && categories.length > 0
             ? < ItemList dropdownListRef={this.dropdownListRef} state={this.state} categories={categories} onClick={this.onClickButton}/>
-            : <div>Loading...</div>
+            : <div>Loading categories...</div>
             }
           </div>
         )
