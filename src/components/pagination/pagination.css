@@ -1,0 +1,63 @@
+.pagination_wrapper {
+    position: absolute;
+    right: 100px;
+    top: calc(50% - 68px/2 - 603px);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    width: 250px;
+    height: 68px;
+    gap: 5PX;
+  
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+.pagination_wrapper .clickEnable {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5ECE7B;
+    border-radius: 12.5px;
+    border: none;
+
+    font-size: inherit;
+    color: inherit;
+
+    cursor: pointer;
+}
+.pagination_wrapper .clickDisable {
+    width: 25px;
+    height: 25px;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    border-radius: 12.5px;
+    border: none;
+
+    font-size: inherit;
+    color: inherit;
+}
+.pagination_wrapper .page{
+    width: 48px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #5ECE7B;
+    border-radius: 12.5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
