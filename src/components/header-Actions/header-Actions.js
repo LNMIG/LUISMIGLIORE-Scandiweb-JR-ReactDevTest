@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import getAllCurrencies from '../../redux/actions/getAllCurrencies';
 import CurrencySelector from './selector-Currencies.js';
 import CartButton from './cart-Button.js';
+import CartCounter from './cart-Counter.js';
 import './header-Actions.css';
-
 export class HeaderActions extends Component {
 
     constructor (props) {
@@ -27,6 +27,7 @@ export class HeaderActions extends Component {
             <div className='headerActionsContainer'>
                 <CurrencySelector />
                 <CartButton />
+                <CartCounter />
             </div>
         )
     }

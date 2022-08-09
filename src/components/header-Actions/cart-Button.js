@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import { connect } from 'react-redux';
 import Cart from '../../assets/shoppingcartempty.svg'
 import './cart-Button.css'
 
@@ -13,16 +12,4 @@ render () {
     )
 }
 }
-
-// const mapStateToProps = (state) => {
-//     return {
-//     };
-//   }
-  
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//     }
-// }
-
-//export default connect(mapStateToProps, mapDispatchToProps)(CartButton);
 export default CartButton
