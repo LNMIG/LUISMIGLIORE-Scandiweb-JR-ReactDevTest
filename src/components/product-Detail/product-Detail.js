@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from 'uuid'
 import clearProductDetails from "../../redux/actions/clearProductDetails";
+import postProductToCart from '../../redux/actions/postProductToCart';
 import ProductDetailAttribute from "./product-DetailAttribute";
 import ProductDetailPrice from "./product-DetailPrice";
 import ProductDetailBrandName from './product-DetailBrandName';
@@ -21,7 +23,12 @@ class ProductDetail extends Component {
     }
 
     onClickAddToCart = (onClick) => {
-        console.log('Datos:', Object.values(this.state).slice(0,-1))
+        let attByDefault = Object.values(this.state).slice(0,-1)
+        let idForDeletion = uuidv4()
+        this.props.productDetails.attByDefault = attByDefault
+        this.props.productDetails.idForDeletion = idForDeletion
+        this.props.productDetails.quantity = 1
+        this.props.postProductToCart(this.props.productDetails)
     }
 
     onClickAttribute = (selected) => {
@@ -29,7 +36,7 @@ class ProductDetail extends Component {
         for (let i=0; i<this.props.productDetails.attributes.length; i++) {
             stated.push(this.state[i])
         }
-        stated.splice(selected.target.id, 1, {[selected.target.name] : selected.target.value})
+        stated.splice(selected.target.id, 1, {id: selected.target.name, value : selected.target.value})
         this.setState((state) => ({...state, ...stated}))
     }
     
@@ -38,11 +45,8 @@ class ProductDetail extends Component {
             let attributeStateLoad = []
 
             for (let i=0; i<this.props.productDetails.attributes.length; i++) {
-                attributeStateLoad.push({[this.props.productDetails.attributes[i].id] : this.props.productDetails.attributes[i].items[0].value})
+                attributeStateLoad.push({id: this.props.productDetails.attributes[i].id, value: this.props.productDetails.attributes[i].items[0].value})
             }
-            attributeStateLoad.push({'id' : this.props.productDetails.id})
-            attributeStateLoad.push({'brand' : this.props.productDetails.brand})
-            attributeStateLoad.push({'name' : this.props.productDetails.name})
 
             this.setState((state) => ({...state, ...attributeStateLoad}))
             this.setState((state) => ({...state, currentImage: this.props.productDetails.gallery[0]}))
@@ -99,6 +103,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       clearProductDetails: () => dispatch(clearProductDetails()),
+      postProductToCart: (selectedProduct) => dispatch(postProductToCart(selectedProduct)),
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)

@@ -45,8 +45,8 @@ class ProductDetailAttribute extends Component {
         }
 
         const returnClassName = (state, itemValue, attributeType) => { 
-            if (attributeType.toLowerCase() === 'text') return Object.values(state).toString() === itemValue ? 'textSelected' : attributeType
-            if (attributeType.toLowerCase() === 'swatch') return Object.values(state).toString() === itemValue ? 'swatchSelected' : attributeType
+            if (attributeType.toLowerCase() === 'text') return Object.values(state)[1].toString() === itemValue ? 'textSelected' : attributeType
+            if (attributeType.toLowerCase() === 'swatch') return Object.values(state)[1].toString() === itemValue ? 'swatchSelected' : attributeType
         }
         const returnStyle = (itemValue) => {
             if (itemValue.charAt(0) === '#') return { background: itemValue}
