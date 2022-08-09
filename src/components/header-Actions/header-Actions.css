@@ -35,21 +35,4 @@
     flex: none;
     order: 0;
     flex-grow: 0;
-
-}
-.headerActionsContainer .cart {
-    width: 40px;
-    height: 40px;
-    background:  white;
-    border: none;
-    
-    cursor: pointer;
-}
-
-.headerActionsContainer .cart .carticon {
-    width: 20px;
-    height: 20px;
-}
-.headerActionsContainer .cart .carticon:hover {
-    box-shadow: 0px 0px 15px grey;
 }

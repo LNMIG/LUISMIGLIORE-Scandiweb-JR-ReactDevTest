@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import getAllCurrencies from '../../redux/actions/getAllCurrencies';
-import CurrencySelector from './selector-Currencies.js'
-import Cart from '../../assets/EmptyCart.png'
-import './header-Actions.css'
+import CurrencySelector from './selector-Currencies.js';
+import CartButton from './cart-Button.js';
+import './header-Actions.css';
 
 export class HeaderActions extends Component {
 
@@ -26,18 +26,8 @@ export class HeaderActions extends Component {
         // const currencies = this.props.allCurrencies
         return (
             <div className='headerActionsContainer'>
-                {/* <select className='select' name={this.state.currencies} value={this.state.currencies} onChange={this.onChange} >
-                    {this.props.allCurrencies.map(currency => 
-                        <option key={Math.random()} value={currency.label}>
-                                {`${currency.symbol} ${currency.label}`}
-                        </option>)}
-                </select> */}
-
                 <CurrencySelector />
-
-                <button className='cart'>
-                    <img className='carticon' src={Cart} alt='' />
-                </button>
+                <CartButton />
             </div>
         )
     }
