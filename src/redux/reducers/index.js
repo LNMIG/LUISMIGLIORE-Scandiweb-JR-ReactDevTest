@@ -71,10 +71,9 @@ function reducer (state = initialState, action) {
         postedCurrentCurrency: action.payload
         }
         case POST_PRODUCT_TO_CART:
-            console.log('REDUCER:',action.payload, state.postedProductsToCart)
         return {
         ...state,
-        postedProductsToCart: state.postedProductsToCart.concat(action.payload)
+        postedProductsToCart: action.payload
         }
         case REMOVE_PRODUCT_FROM_CART:
         return {
