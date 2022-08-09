@@ -23,7 +23,6 @@ export class HeaderActions extends Component {
     }
 
     render() {
-        // const currencies = this.props.allCurrencies
         return (
             <div className='headerActionsContainer'>
                 <CurrencySelector />

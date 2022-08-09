@@ -10,10 +10,8 @@ import './product-Card.css';
 class ProductCard extends Component {
 
     addAttrByDefault = (addAttByDefault) => {
-        let attByDefault = addAttByDefault.attributes.map(each => {return {id: each.id, value: each.items[0].value}})
-        let idForDeletion = uuidv4()
-        addAttByDefault.attByDefault = attByDefault
-        addAttByDefault.idForDeletion = idForDeletion
+        addAttByDefault.attByDefault = addAttByDefault.attributes.map(each => {return {id: each.id, value: each.items[0].value}})
+        addAttByDefault.idForDeletion = uuidv4()
         addAttByDefault.quantity = 1
         return addAttByDefault
     }
@@ -22,10 +20,15 @@ class ProductCard extends Component {
         this.props.getProductById(productId)
     }
     onClickCartButton = (selectedProductToAdd) => {
-        if (selectedProductToAdd.attributes && selectedProductToAdd.attributes.length > 0) {
-            this.props.postProductToCart(this.addAttrByDefault(selectedProductToAdd))
+        let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(selectedProductToAdd))
+        let copyInDeepPastProducts = JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+        
+        if (copyInDeepSelectedProduct.attributes && copyInDeepSelectedProduct.attributes.length > 0) {
+            this.props.postProductToCart(copyInDeepPastProducts, this.addAttrByDefault(copyInDeepSelectedProduct))
         } else {
-            this.props.postProductToCart(selectedProductToAdd)
+            copyInDeepSelectedProduct.idForDeletion = uuidv4()
+            copyInDeepSelectedProduct.quantity = 1
+            this.props.postProductToCart(copyInDeepPastProducts, copyInDeepSelectedProduct)
         }
     }
 
@@ -93,12 +96,13 @@ const mapStateToProps = (state) => {
             productsByCategory: state.productsByCategory,
             paginationData: state.paginationData,
             postedCurrentCurrency: state.postedCurrentCurrency,
+            postedProductsToCart: state.postedProductsToCart,
     };
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         getProductById: (productId) => dispatch(getProductById(productId)),
-        postProductToCart: (selectedProduct) => dispatch(postProductToCart(selectedProduct)),
+        postProductToCart: (pastSelection,currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
   }
 }
 

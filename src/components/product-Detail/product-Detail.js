@@ -22,13 +22,14 @@ class ProductDetail extends Component {
         this.setState(prevState => ({...prevState, currentImage: onClick.target.src}))
     }
 
-    onClickAddToCart = (onClick) => {
-        let attByDefault = Object.values(this.state).slice(0,-1)
-        let idForDeletion = uuidv4()
-        this.props.productDetails.attByDefault = attByDefault
-        this.props.productDetails.idForDeletion = idForDeletion
-        this.props.productDetails.quantity = 1
-        this.props.postProductToCart(this.props.productDetails)
+    onClickAddToCart = () => {
+        let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(this.props.productDetails))
+        let copyInDeepPastProducts = JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+        copyInDeepSelectedProduct.attByDefault = Object.values(this.state).slice(0,-1)
+        copyInDeepSelectedProduct.idForDeletion = uuidv4()
+        copyInDeepSelectedProduct.quantity = 1
+        
+        this.props.postProductToCart(copyInDeepPastProducts, copyInDeepSelectedProduct)
     }
 
     onClickAttribute = (selected) => {
@@ -98,12 +99,13 @@ const mapStateToProps = (state) => {
     return {
         productDetails: state.productDetails,
         postedCurrentCurrency: state.postedCurrentCurrency,
+        postedProductsToCart: state.postedProductsToCart,
     };
 }
 const mapDispatchToProps = (dispatch) => {
     return {
       clearProductDetails: () => dispatch(clearProductDetails()),
-      postProductToCart: (selectedProduct) => dispatch(postProductToCart(selectedProduct)),
+      postProductToCart: (pastSelection, currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)
