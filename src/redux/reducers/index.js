@@ -7,7 +7,9 @@ import {
     POST_CURRENT_CATEGORY,
     POST_CURRENT_SELECTED_PRODUCTS,
     POST_CURRENT_SELECTED_CURRENCY,
+    POST_PRODUCT_TO_CART,
     CLEAR_PRODUCT_DETAILS,
+    REMOVE_PRODUCT_FROM_CART,
 } from '../constants'
 
 const initialState = {
@@ -18,6 +20,7 @@ const initialState = {
     productDetails: {},
     postedCurrentCategory: {},
     postedCurrentCurrency: [],
+    postedProductsToCart: [],
 }
 
 function reducer (state = initialState, action) {
@@ -66,6 +69,17 @@ function reducer (state = initialState, action) {
         return {
         ...state,
         postedCurrentCurrency: action.payload
+        }
+        case POST_PRODUCT_TO_CART:
+            console.log('REDUCER:',action.payload, state.postedProductsToCart)
+        return {
+        ...state,
+        postedProductsToCart: state.postedProductsToCart.concat(action.payload)
+        }
+        case REMOVE_PRODUCT_FROM_CART:
+        return {
+        ...state,
+        postedProductsToCart: state.postedProductsToCart.filter((product) => product.idForDeletion !== action.payload)
         }
         default:
         return state;
