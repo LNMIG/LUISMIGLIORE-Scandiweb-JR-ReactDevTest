@@ -73,6 +73,7 @@
     height: 52px;
     right: 15px;
     bottom: -26px;
+    z-index: 100000;
 
     cursor: pointer;
 }

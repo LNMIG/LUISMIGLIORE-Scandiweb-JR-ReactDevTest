@@ -1,14 +1,32 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import getProductById from "../../redux/actions/getProductById";
-import Vector from '../../assets/addToCart.png'
+import { v4 as uuidv4 } from 'uuid';
+import getProductById from '../../redux/actions/getProductById';
+import postProductToCart from '../../redux/actions/postProductToCart';
+import Vector from '../../assets/addToCart.png';
 import './product-Card.css';
 
 class ProductCard extends Component {
 
+    addAttrByDefault = (addAttByDefault) => {
+        let attByDefault = addAttByDefault.attributes.map(each => {return {id: each.id, value: each.items[0].value}})
+        let idForDeletion = uuidv4()
+        addAttByDefault.attByDefault = attByDefault
+        addAttByDefault.idForDeletion = idForDeletion
+        addAttByDefault.quantity = 1
+        return addAttByDefault
+    }
+
     onClickNavigation = (productId) => {
         this.props.getProductById(productId)
+    }
+    onClickCartButton = (selectedProductToAdd) => {
+        if (selectedProductToAdd.attributes && selectedProductToAdd.attributes.length > 0) {
+            this.props.postProductToCart(this.addAttrByDefault(selectedProductToAdd))
+        } else {
+            this.props.postProductToCart(selectedProductToAdd)
+        }
     }
 
     render() {
@@ -25,7 +43,6 @@ class ProductCard extends Component {
             return currentPriceAmount[0].amount
         }
 
-        // if (this.props.productsByCategory.length === 0) {
         if (this.props.paginationData.length === 0) {
             return (
                 <div className='productCardLoading'>
@@ -36,18 +53,18 @@ class ProductCard extends Component {
 
         return (
             <div className='wraperProductCard'>
-                    {/* {this.props.productsByCategory.slice(0,6).map(product => {return ( */}
                     {this.props.paginationData.map(product => {return (
                         <div className={product.inStock ? 'productCardContainer' : 'outOfStock'} key={product.id}>
-                        <NavLink to={product.inStock ? `/productdetails/${product.id}` : ``} className="navlink" onClick={()=>this.onClickNavigation(product.id)}>
                         <div className='imageContainer'>
-                            <img src={product.gallery[0]} alt="view here" className='image'/>
-                            {!product.inStock ? <div className='noStock'> OUT OF STOCK</div> : ''}
+                            <NavLink to={product.inStock ? `/productdetails/${product.id}` : ``} className="navlink" onClick={()=>this.onClickNavigation(product.id)}>
+                                <img src={product.gallery[0]} alt="view here" className='image'/>
+                                {!product.inStock ? <div className='noStock'> OUT OF STOCK</div> : ''}
+                            </NavLink>
                             <div  className='circleIcon'>
                                 {product.inStock
                                 ?
-                                    <button className='surface' onClick={()=>{}}>
-                                        <img src={Vector} alt='' className='vector'/>
+                                    <button className='surface' onClick={()=>this.onClickCartButton(product)}>
+                                        <img src={Vector} alt='' className='vector' />
                                     </button>
                                 :
                                  ''
@@ -64,7 +81,6 @@ class ProductCard extends Component {
                                 </div>
                             </div>
                         </div>
-                        </NavLink>
                         </div>
                     )})}
             </div>
@@ -81,7 +97,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        getProductById: (productId) => dispatch(getProductById(productId))
+        getProductById: (productId) => dispatch(getProductById(productId)),
+        postProductToCart: (selectedProduct) => dispatch(postProductToCart(selectedProduct)),
   }
 }
 
