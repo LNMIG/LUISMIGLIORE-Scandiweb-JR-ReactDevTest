@@ -1,11 +1,11 @@
 .productDetailContainer .second .grouped .description{
     width: 100%;
-    height: fit-content;
+    height: 6.4375rem;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 159.96%;
 
     /* --c-text */

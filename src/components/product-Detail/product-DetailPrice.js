@@ -6,7 +6,7 @@ class ProductDetailPrice extends Component {
     render () {
 
         let currencySymbol = this.props.currentCurrency[0].symbol
-        const amount = (prices) => {
+        const amount = () => {
             let currentAmount = this.props.prices.filter(price => price.currency.symbol === currencySymbol)
             return currentAmount[0].amount
         }
@@ -14,7 +14,7 @@ class ProductDetailPrice extends Component {
         return (
             <div className="productDetailPriceContainer">
                 <div className='price'>PRICE:</div>
-                <div className='amount'>{`${currencySymbol} ${amount(this.prices)}`}</div>
+                <div className='amount'>{`${currencySymbol} ${amount()}`}</div>
             </div>
         )
     }

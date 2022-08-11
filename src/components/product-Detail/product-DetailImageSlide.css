@@ -18,14 +18,15 @@
     padding: 0px;
     border: none;
     
-    background: #C4C4C4;
+    background: #ffffff;
     cursor: pointer;
 }
 .productDetailContainer .first .button:hover {
     box-shadow: 0px 0px 25px grey;
 }
 .productDetailContainer .first .button .imageSide {
-    width: 80px;
-    height:80px;
-    background: #C4C4C4;
+    width: 100%;
+    height:100%;
+    object-fit: contain;
+    /* background: #C4C4C4; */
 }
