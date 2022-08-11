@@ -1,0 +1,23 @@
+.mainCartWrapper {
+    position: relative;
+    width: 77.375rem;
+    left: 6.3125rem;
+    right: 6.3125rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    border-bottom: 2px solid #E5E5E5;
+}
+.miniCartWrapper {
+    position: relative;
+    width: 77.375rem;
+    left: 6.3125rem;
+    right: 6.3125rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
