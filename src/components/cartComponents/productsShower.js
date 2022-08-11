@@ -5,10 +5,10 @@ import './productsShower.css';
 
 class ProductsShower extends Component {
     render (){
-
+        
         return (
             <div className={this.props.class}>
-                <WrapperLeft product={this.props.product}/>
+                <WrapperLeft product={this.props.product} currentCurrency={this.props.currentCurrency}/>
                 <WrapperRight product={this.props.product}/>
             </div>
         )
