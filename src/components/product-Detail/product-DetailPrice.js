@@ -12,7 +12,7 @@ class ProductDetailPrice extends Component {
         }
 
         return (
-            <div className="productDetailPriceContainer">
+            <div className={this.props.whereToShow === 'mainCartPD' ? 'mainCartPD' : this.props.whereToShow === 'miniCartPD' ? 'miniCartPD' : "productDetailPriceContainer"}>
                 <div className='price'>PRICE:</div>
                 <div className='amount'>{`${currencySymbol} ${amount()}`}</div>
             </div>

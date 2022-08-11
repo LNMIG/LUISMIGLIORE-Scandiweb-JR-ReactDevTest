@@ -1,7 +1,7 @@
 .logo {
     position: absolute;
-    width: 41px;
-    height: 41px;
-    left: 699px;
-    top: calc(50% - 41px/2 + 4.5px);
+    width: 2.5625rem;
+    height: 2.5625rem;
+    left: 43.6875rem;
+    top: calc(50% - 2.5625rem/2 + 0.28125rem);
 }

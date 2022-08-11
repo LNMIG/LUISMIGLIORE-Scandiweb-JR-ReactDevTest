@@ -1,45 +1,32 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import putNewProductAttributes from '../../redux/actions/putNewProductAttributes'
 import './product-DetailAttribute.css'
+import './product-DetailAttributeMainCart.css'
+import './product-DetailAttributeMiniCart.css'
 
 class ProductDetailAttribute extends Component {
 
-    // constructor (props) {
-    //     super(props);
-    //     this.state={};
-    // }
+    constructor (props) {
+        super(props);
+        this.state={};
+    }
     
-    // onClick = (selected) => {
-    //     let stated = []
-    //     for (let i=0; i<this.props.productDetails.attributes.length; i++) {
-    //         stated.push(this.state[i])
-    //     }
-    //     stated.splice(selected.target.id, 1, {[selected.target.name] : selected.target.value})
-    //     this.setState((state) => ({...state, ...stated}))
-    // }
+    onClickOther = (selected) => {
+        let stated = {id: selected.target.name, value: selected.target.value}
+        let attByDefault = this.props.state.map(each=> each.id === stated.id ? stated : each)
+        this.setState((state) => ({...state, attByDefault}))
+    }
 
-    // componentDidMount () {
-    //     if(this.props.productDetails.attributes.length !== 0) {
-    //         let stated = []
-    //         for (let i=0; i<this.props.productDetails.attributes.length; i++) {
-    //             stated.push({[this.props.productDetails.attributes[i].id] : this.props.productDetails.attributes[i].items[0].value})
-    //         }
-    //         this.setState((state) => ({...state, ...stated}))
-    //     }
-    // }
-
-    // componentDidUpdate (prevProps, _prevState) {
-    //     if(this.props.productDetails.id !== prevProps.productDetails.id) {
-    //         this.setState({})
-    //         let stated = []
-    //         for (let i=0; i<this.props.productDetails.attributes.length; i++) {
-    //             stated.push({[this.props.productDetails.attributes[i].id] : this.props.productDetails.attributes[i].items[0].value})
-    //         }
-    //         this.setState((state) => ({...state, ...stated}))
-    //     }
-    // }
+    componentDidUpdate (_prevProps, prevState) {
+        if(this.state !== prevState) {
+            this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, this.state)
+        }
+    }
 
     render () {
         
+        if (!this.props.state) return <></>
         if (Object.entries(this.props.state).length === 0) {
             return <h2>Loading...</h2>
         }
@@ -56,7 +43,7 @@ class ProductDetailAttribute extends Component {
         }
 
         return (
-            <div className="productDetailAttributeContainer">
+            <div className={this.props.whereToShow === 'mainCartPA' ? 'mainCartPA' : this.props.whereToShow === 'miniCartPA' ? 'miniCartPA' : "productDetailAttributeContainer"}>
                 {this.props.attributes && this.props.attributes.length>0 ?
                     this.props.attributes.map((attribute, indexA) => {return (
                         <div className="attributeWraper" key={indexA}>
@@ -72,7 +59,7 @@ class ProductDetailAttribute extends Component {
                                             style={ returnStyle(item.value) }
                                             name={attribute.name}
                                             value={item.value}
-                                            onClick={this.props.onClick}
+                                            onClick={this.props.onClickAttribute ? this.props.onClickAttribute : this.onClickOther}
                                         >
                                             {returnName(item.value)}
                                         </button>
@@ -91,4 +78,14 @@ class ProductDetailAttribute extends Component {
         )
     }
 }
-export default ProductDetailAttribute;
+const mapStateToProps = (state) => {
+    return {
+        postedProductsToCart: state.postedProductsToCart,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        putNewProductAttributes: (pack, id, attribute) => dispatch(putNewProductAttributes(pack, id, attribute))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailAttribute);

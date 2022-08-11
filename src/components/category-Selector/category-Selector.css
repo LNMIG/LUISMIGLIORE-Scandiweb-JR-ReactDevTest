@@ -1,6 +1,6 @@
 .dropdown_wrapper {
   position: absolute;
   display: inline-block;
-  left: 100px;
-  top: calc(50% - 68px/2 - 603px);
+  left: 6.25rem;
+  top: calc(50% - 4.25rem/2 - 37.6875rem);
 }

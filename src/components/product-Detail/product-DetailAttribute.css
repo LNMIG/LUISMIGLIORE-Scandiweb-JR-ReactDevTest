@@ -1,32 +1,32 @@
 .productDetailAttributeContainer {
     width: 100%;
-    min-height: 175px;
+    min-height: 10.9375rem;
     
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    gap: 10px;
+    gap: 0.625rem;
 }
 .productDetailAttributeContainer .attributeWraper{
     width: 100%;
-    height: 68px;
+    height: 4.25rem;
 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    gap: 5px;
+    gap: 0.3125rem;
 }
 .productDetailAttributeContainer .attributeWraper .attributeId{
     width: 100%;
-    height: 18px;
+    height: 1.125rem;
     
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 1.125rem;
+    line-height: 1.125rem;
     
     display: flex;
     align-items: center;
@@ -37,9 +37,9 @@
 }
 .productDetailAttributeContainer .attributeWraper .attributeItems{
     width: 100%;
-    height: 45px;
-    padding-left: 3px;
-    gap: 12px;
+    height: 2.8125rem;
+    padding-left: 0.1875rem;
+    gap: 0.75rem;
 
     display: flex;
     flex-direction: row;
@@ -49,16 +49,16 @@
 .productDetailAttributeContainer .attributeWraper .attributeItems .text{
     box-sizing: border-box;
 
-    width: 63px;
-    height: 45px;
+    width: 3.9375rem;
+    height: 2.8125rem;
     border: 1px solid #1D1F22;
     background: none;
 
     font-family:'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 1rem;
+    line-height: 1.125rem;
 
     display: flex;
     justify-content: center;
@@ -73,16 +73,16 @@
 
     box-sizing: border-box;
 
-    width: 63px;
-    height: 45px;
+    width: 3.9375rem;
+    height: 2.8125rem;
     border: 1px solid #1D1F22;
     background: #1D1F22;
 
     font-family:'Source Sans Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 1rem;
+    line-height: 1.125rem;
 
     display: flex;
     justify-content: center;
@@ -97,8 +97,8 @@
 }
 .productDetailAttributeContainer .attributeWraper .attributeItems .swatch{
     
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     background: none;
     border: 0.1px solid #d1d1d1;
 
@@ -106,10 +106,10 @@
 }
 .productDetailAttributeContainer .attributeWraper .attributeItems .swatchSelected{
     
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
     outline: 1px solid #5ECE7B;
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     border: 0.1px solid #d1d1d1;
 
     text-transform: full-width;

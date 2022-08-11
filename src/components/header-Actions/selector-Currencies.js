@@ -47,6 +47,7 @@ class CurrencySelector extends Component {
 
     componentDidMount() {
         this.props.getAllCurrencies();
+        this.props.postSelectedCurrency(this.state.currentCurrency);
       }
 
     componentDidUpdate(_prevProps, prevState, _snapshot) {

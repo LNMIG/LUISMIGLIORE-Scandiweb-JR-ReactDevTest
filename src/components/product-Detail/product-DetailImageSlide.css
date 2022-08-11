@@ -3,19 +3,19 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 5px;
+    gap: 0.3125rem;
 
     position: absolute;
-    width: 80px;
-    height: 595px;
-    left: 98px;
-    top: 80px;
+    width: 5rem;
+    height: 37.1875rem;
+    left: 6.125rem;
+    top: 5rem;
 }
 .productDetailContainer .first .button {
-    width: 80px;
-    height:80px;
-    margin: 0px;
-    padding: 0px;
+    width: 5rem;
+    height:5rem;
+    margin: 0rem;
+    padding: 0rem;
     border: none;
     
     background: #ffffff;

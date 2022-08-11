@@ -1,21 +1,21 @@
 .productDetailContainer .second .grouped .bn{
     width: 100%;
-    height: 70px;
+    height: 4.375rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 10px;
+    gap: 0.625rem;
 }
 .productDetailContainer .second .grouped .bn .brand{
     width: 100%;
-    height: 30px;
+    height: 1.875rem;
     
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 1.875rem;
+    line-height: 1.875rem;
     /* identical to box height, or 90% */
     
     display: flex;
@@ -25,13 +25,13 @@
 }
 .productDetailContainer .second .grouped .bn .name{
     width: 100%;
-    height: 30px;
+    height: 1.875rem;
     
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 1.875rem;
+    line-height: 1.875rem;
     /* identical to box height, or 90% */
 
     display: flex;

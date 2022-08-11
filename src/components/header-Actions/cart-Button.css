@@ -1,6 +1,6 @@
 .headerActionsContainer .cart {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
 
     display: flex;
     flex-direction: row;
@@ -14,8 +14,8 @@
     cursor: pointer;
 }
 .headerActionsContainer .cart .carticon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 .headerActionsContainer .cart:hover {
     border-bottom: 1px solid silver;

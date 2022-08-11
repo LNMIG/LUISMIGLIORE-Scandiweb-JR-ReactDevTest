@@ -1,7 +1,7 @@
 .productDetailPriceContainer {
     
     width: 100%;
-    height: 74px;
+    height: 4.625rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -9,13 +9,13 @@
 }
 .productDetailPriceContainer .price{
     width: 100%;
-    height: 18px;
+    height: 1.125rem;
     
     font-family: 'Roboto Condensed';
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 18px;
+    font-size: 1.125rem;
+    line-height: 1.125rem;
     
     display: flex;
     align-items: center;
@@ -25,13 +25,40 @@
 }
 .productDetailPriceContainer .amount{
     width: 100%;
-    height: 46px;
+    height: 2.875rem;
     
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 18px;
+    font-size: 1.5rem;
+    line-height: 1.125rem;
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #1D1F22;
+}
+.mainCartPD {
+    width: 100%;
+    height: 1.875rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.mainCartPD .price{
+    display: none
+}
+.mainCartPD .amount{
+    width: 100%;
+    height: 1.875rem;
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
     
     display: flex;
     align-items: center;

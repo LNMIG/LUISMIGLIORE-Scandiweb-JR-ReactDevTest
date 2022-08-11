@@ -84,7 +84,7 @@ class ProductDetail extends Component {
                     <img src={currentImage} alt="view here" className='imageMain'/>
                     <div className="grouped">
                         < ProductDetailBrandName brand={this.props.productDetails.brand} name={this.props.productDetails.name}/>
-                        < ProductDetailAttribute attributes={this.props.productDetails.attributes} state={this.state} onClick={this.onClickAttribute}/>
+                        < ProductDetailAttribute attributes={this.props.productDetails.attributes} state={this.state} onClickAttribute={this.onClickAttribute}/>
                         < ProductDetailPrice currentCurrency={currentCurrency} prices={this.props.productDetails.prices} />
                         < ProductDetailAddToCart onClick={this.onClickAddToCart} />
                         < ProductDetailDescription description={this.props.productDetails.description} />

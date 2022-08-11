@@ -20,11 +20,11 @@
   background-color: inherit;
   border: none;
   width: max-content;
-  height: 40px;
+  height: 2.5rem;
 }
 .currencyShow .symbol{
-  width: 30px;
+  width: 1.875rem;
 }
 .currencyShow .label{
-  width: 40px;
+  width: 2.5rem;
 }

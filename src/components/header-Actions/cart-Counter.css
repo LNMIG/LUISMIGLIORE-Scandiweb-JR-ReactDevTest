@@ -1,9 +1,9 @@
 .counterWrapper {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    right: 0px;
-    top: 0px;
+    width: 1.25rem;
+    height: 1.25rem;
+    right: 0rem;
+    top: 0rem;
     
     display: flex;
     justify-content: center;
@@ -16,12 +16,10 @@
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 0.875rem;
+    line-height: 1rem;
     text-align: center;
     text-transform: uppercase;
     
     color: #FFFFFF;
 }
-
-
