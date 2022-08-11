@@ -10,6 +10,7 @@ import {
     POST_PRODUCT_TO_CART,
     CLEAR_PRODUCT_DETAILS,
     REMOVE_PRODUCT_FROM_CART,
+    PUT_NEW_PRODUCT_ATTRIBUTE,
 } from '../constants'
 
 const initialState = {
@@ -79,6 +80,11 @@ function reducer (state = initialState, action) {
         return {
         ...state,
         postedProductsToCart: state.postedProductsToCart.filter((product) => product.idForDeletion !== action.payload)
+        }
+        case PUT_NEW_PRODUCT_ATTRIBUTE:
+        return {
+        ...state,
+        postedProductsToCart: action.payload
         }
         default:
         return state;
