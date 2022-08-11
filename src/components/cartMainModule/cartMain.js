@@ -4,7 +4,6 @@ import NameShower from '../cartComponents/nameShower';
 import ProductsShower from '../cartComponents/productsShower';
 import PriceShower from '../cartComponents/priceShower';
 import OrderButton from '../cartComponents/generalUseButton';
-//import {one} from './loads.js'
 
 class MainCart extends Component {
     render (){

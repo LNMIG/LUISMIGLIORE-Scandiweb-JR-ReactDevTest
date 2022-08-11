@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
+import putNewProductAttributes from '../../redux/actions/putNewProductAttributes'
 import './productQuantity.css';
 
 class ProductQuantityWrapper extends Component {
@@ -21,10 +23,15 @@ class ProductQuantityWrapper extends Component {
         : console.log('') //: this.props.removeProductFromCart(product.idForDeletion)
     }
 
+    componentDidMount(){
+        if (this.props.quantity && this.props.quantity !== 0) {
+            this.setState(state => ({...state, quantity: this.props.quantity}))
+        }
+    }
     componentDidUpdate(prevProps, prevState) {
-        if(this.state.quantity!==prevState.quantity) {
+        if(this.state.quantity !== prevState.quantity) {
             if(this.state.quantity>0) {
-                //this.props.putNewProductAttributes(productId, this.state)
+                this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, {quantity: this.state.quantity})
             } else {
                 this.setState(state => ({...state, remove: true}))
             }
@@ -54,4 +61,14 @@ class ProductQuantityWrapper extends Component {
         )
     }
 }
-export default ProductQuantityWrapper
+const mapStateToProps = (state) => {
+    return {
+        postedProductsToCart: state.postedProductsToCart,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        putNewProductAttributes: (pack, id, attribute) => dispatch(putNewProductAttributes(pack, id, attribute))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductQuantityWrapper)

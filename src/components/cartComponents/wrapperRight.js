@@ -8,8 +8,14 @@ class WrapperRight extends Component {
         
         return (
             <div className='wrapperRight'>
-                <ProductQuantity />
-                <ImageSlider gallery={this.props.product.gallery}/>
+                <ProductQuantity 
+                    quantity={this.props.product.quantity}
+                    idForDeletion={this.props.product.idForDeletion}
+                    product={this.props.product}
+                />
+                <ImageSlider
+                    gallery={this.props.product.gallery}
+                />
             </div>
         )
     }
