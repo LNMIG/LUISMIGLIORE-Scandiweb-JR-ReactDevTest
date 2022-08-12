@@ -9,7 +9,6 @@ class MainCart extends Component {
     render (){
         let saved = this.props.postedProductsToCart
         let currentCurrency = this.props.postedCurrentCurrency
-        
         return (
             <>
                 <NameShower />

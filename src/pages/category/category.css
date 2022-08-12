@@ -1,6 +1,7 @@
 .mainContainer {
     width: 90rem;
-    height: 59.5625rem;
+    min-height: 89.5625rem;
+    max-height: 100%;
     position: absolute;
     left: calc((100% - 90rem) / 2 );
     right: calc((100% - 90rem) / 2 );

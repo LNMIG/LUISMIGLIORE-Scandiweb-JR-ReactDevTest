@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import putNewProductAttributes from '../../redux/actions/putNewProductAttributes'
+import removeProductFromCart from '../../redux/actions/removeProductFromCart';
 import './productQuantity.css';
 
 class ProductQuantityWrapper extends Component {
@@ -8,44 +9,64 @@ class ProductQuantityWrapper extends Component {
     constructor(props) {
         super(props);
         this.state={
-            quantity: 1,
             remove: false,
         }
     }
+    remove = (selected) => {
+        this.props.removeProductFromCart(selected)
+        this.setState(state => ({...state, remove: false}))
+    }
     onClickSquare = (selected) => {
-        selected.target.name=== 'minus'
-        ? this.setState(state => ({...state, quantity: this.state.quantity - 1}))
-        : this.setState(state => ({...state, quantity: this.state.quantity + 1}))
-    }
-    onClickRemove = (selected) => {
-        selected.target.name=== 'NO'
-        ? this.setState(state => ({...state, quantity: this.state.quantity + 1, remove: false}))
-        : console.log('') //: this.props.removeProductFromCart(product.idForDeletion)
-    }
-
-    componentDidMount(){
-        if (this.props.quantity && this.props.quantity !== 0) {
-            this.setState(state => ({...state, quantity: this.props.quantity}))
-        }
-    }
-    componentDidUpdate(prevProps, prevState) {
-        if(this.state.quantity !== prevState.quantity) {
-            if(this.state.quantity>0) {
-                this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, {quantity: this.state.quantity})
-            } else {
+        if (selected.target.name === 'plus') {
+            this.props.putNewProductAttributes(
+                this.props.postedProductsToCart,
+                this.props.product.idForDeletion,
+                {quantity: this.props.product.quantity + 1}
+                )
+        } else {
+            if (this.props.product.quantity === 1) {
                 this.setState(state => ({...state, remove: true}))
+            } else {
+                this.props.putNewProductAttributes(
+                    this.props.postedProductsToCart,
+                    this.props.product.idForDeletion,
+                    {quantity: this.props.product.quantity - 1}
+                    )
             }
         }
+        // ? this.setState(state => ({...state, quantity: this.state.quantity - 1}))
+        // : this.setState(state => ({...state, quantity: this.state.quantity + 1}))
+    }
+    onClickRemove = (selected) => {
+        selected.target.name=== 'YES'
+        ? this.remove(selected.target.value)
+        : this.setState(state => ({...state, remove: false}))
     }
 
+    // componentDidMount(){
+    //     if (this.props.product.quantity && this.props.product.quantity !== 0) {
+    //         this.setState(state => ({...state, quantity: this.props.quantity}))
+    //     }
+    // }
+    // componentDidUpdate(prevProps, prevState) {
+    //     if(this.state.quantity !== prevState.quantity) {
+    //         if(this.state.quantity>0) {
+    //             this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, {quantity: this.state.quantity})
+    //         } else {
+    //             this.setState(state => ({...state, remove: true}))
+    //         }
+    //     }
+    // }
+    
     render (){
+
         return (
             <div className='productQuantityWrapper'>
                 <button name='plus'className='square' onClick={this.onClickSquare}>
                     +
                 </button>
                 <span className='productQuantity'>
-                    {this.state.quantity}
+                    {this.props.product.quantity}
                 </span>
                 <button name='minus' className='square' onClick={this.onClickSquare}>
                     -
@@ -53,8 +74,8 @@ class ProductQuantityWrapper extends Component {
                 <span name='remove' className={this.state.remove? 'remove' : 'keep'}>
                     <p>Do you really want to remove this product from your bag?</p>
                     <div className='buttonsContainer'>
-                        <button name='YES'className='buttons' onClick={this.onClickRemove}>YES</button>
-                        <button name='NO' className='buttons' onClick={this.onClickRemove}>NO</button>
+                        <button name='YES'value={this.props.product.idForDeletion} className='buttons' onClick={this.onClickRemove}>YES</button>
+                        <button name='NO' value={this.props.product.idForDeletion} className='buttons' onClick={this.onClickRemove}>NO</button>
                     </div>
                 </span>
             </div>
@@ -68,7 +89,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        putNewProductAttributes: (pack, id, attribute) => dispatch(putNewProductAttributes(pack, id, attribute))
+        putNewProductAttributes: (pack, id, attribute) => dispatch(putNewProductAttributes(pack, id, attribute)),
+        removeProductFromCart: (idForDeletion) => dispatch(removeProductFromCart(idForDeletion)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductQuantityWrapper)

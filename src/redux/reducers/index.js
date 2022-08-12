@@ -76,15 +76,15 @@ function reducer (state = initialState, action) {
         ...state,
         postedProductsToCart: action.payload
         }
-        case REMOVE_PRODUCT_FROM_CART:
-        return {
-        ...state,
-        postedProductsToCart: state.postedProductsToCart.filter((product) => product.idForDeletion !== action.payload)
-        }
         case PUT_NEW_PRODUCT_ATTRIBUTE:
         return {
         ...state,
         postedProductsToCart: action.payload
+        }
+        case REMOVE_PRODUCT_FROM_CART:
+        return {
+        ...state,
+        postedProductsToCart: state.postedProductsToCart.filter((product) => product.idForDeletion !== action.payload)
         }
         default:
         return state;
