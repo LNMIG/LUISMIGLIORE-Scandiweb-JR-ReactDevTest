@@ -4,6 +4,7 @@ import NameShower from '../cartComponents/nameShower';
 import ProductsShower from '../cartComponents/productsShower';
 import PriceShower from '../cartComponents/priceShower';
 import OrderButton from '../cartComponents/generalUseButton';
+import './cartMain.css'
 
 class MainCart extends Component {
     render (){
@@ -18,12 +19,15 @@ class MainCart extends Component {
                     class={'mainCartWrapper'}
                     product={product}
                     currentCurrency={currentCurrency}
+                    whereToShow={'mainCart'}
                     />)
                 :
-                null
+                <div className={'mainCartWrapper'}>
+                    <span className='emptyBag'>Nothing in your bag yet!</span>
+                </div>
                 }
-                <PriceShower products={saved} currentCurrency={currentCurrency}/>
-                <OrderButton classLink={'classLinkDenied'} navlink={'cart'} class={'order'} placeholder={'ORDER'}/>
+                <PriceShower products={saved} currentCurrency={currentCurrency} typo={'mainCart'}/>
+                <OrderButton classLink={'classLinkDenied'} navlink='cart' class={'order'} placeholder={'ORDER'}/>
             </>
         )
     }
