@@ -1,38 +1,15 @@
 .headerActionsContainer {
     /* Auto layout */
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     padding: 0px;
-    gap: 1.375rem;
+    gap: 1.375rem; */
 
     position: absolute;
     width: 12.75rem;
     height: 2.5rem;
     right: 6.3125rem;
     top: 1.4375rem;
-}
-.headerActionsContainer .select {
-    width:max-content;
-    height: 2.5rem;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-
-     /* --price-regular-font */
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.125rem;
-    line-height: 160%;
-
-    /* --c-black */
-    color: #1D1F22;
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
 }

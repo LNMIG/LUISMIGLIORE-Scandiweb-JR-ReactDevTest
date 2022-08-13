@@ -7,17 +7,6 @@ import CartCounter from './cart-Counter.js';
 import './header-Actions.css';
 export class HeaderActions extends Component {
 
-    constructor (props) {
-        super(props)
-        this.state = {
-            currencies: '',
-            }
-    }
-
-    onChange = selectedCurrency => {
-        this.setState(prevState => ({...prevState, currencies: selectedCurrency.target.value }))
-    }
-
     componentDidMount() {
         this.props.getAllCurrencies();
     }

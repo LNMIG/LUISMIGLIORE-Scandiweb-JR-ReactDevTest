@@ -1,4 +1,7 @@
 .headerActionsContainer .cart {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
     width: 2.5rem;
     height: 2.5rem;
 

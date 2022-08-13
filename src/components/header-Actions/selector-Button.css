@@ -1,7 +1,8 @@
 .currencyActivator {
+    position: relative;
+    left: 7rem;
+    top: 0rem;
     display: flex;
-    /* flex-direction: row;
-    justify-content: flex-start; */
     align-items: center;
     background-color: inherit;
     border: none;

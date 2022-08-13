@@ -1,13 +1,12 @@
 .currencyItemList {
   display: none;
-  background-color: white;
   margin: 0;
-  z-index: 1000;
-  position: absolute;
-  left: 0px;
-  box-shadow: 0 0 15px 0 grey;
-  border-radius: 0px;
   padding: 0;
+  z-index: 11000;
+  position: absolute;
+  left: 3rem;
+  background-color: white;
+  box-shadow: 0 0 15px 0 grey;
 }
 .currencyItemList.active {
   display: grid;
