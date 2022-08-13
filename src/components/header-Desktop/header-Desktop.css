@@ -1,8 +1,8 @@
 .headerDesktopContainer {
     position: absolute;
-    width: 90rem;
+    width: 100%; /* 90rem*/
     height: 5rem;
-    left: calc((100% - 90rem) / 2 );
+    left: 0rem; /*calc((100% - 90rem) / 2 );*/
     right: calc((100% - 90rem) / 2 );
     top: 0%;
 }

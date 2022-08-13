@@ -2,6 +2,6 @@
     position: absolute;
     width: 2.5625rem;
     height: 2.5625rem;
-    left: 43.6875rem;
+    left: 50%; /*43.6875rem;*/
     top: calc(50% - 2.5625rem/2 + 0.28125rem);
 }
