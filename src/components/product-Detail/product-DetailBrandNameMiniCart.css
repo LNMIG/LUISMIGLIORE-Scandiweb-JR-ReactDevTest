@@ -1,0 +1,42 @@
+.miniCartBN {
+    position: relative;
+    width: 100%;
+    min-height: 3.25rem;
+    max-height: max-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.miniCartBN .brand{
+    width: 100%;
+    min-height: 1.625rem;
+    max-height: max-content;
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    
+    display: flex;
+    align-items: center;
+    
+    color: #1D1F22;
+}
+.miniCartBN .name{
+    width: 100%;
+    min-height: 1.625rem;
+    max-height: max-content;
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    color: #1D1F22;
+}

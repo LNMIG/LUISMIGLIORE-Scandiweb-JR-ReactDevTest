@@ -8,7 +8,7 @@
     position: absolute;
     width: 5rem;
     height: 37.1875rem;
-    left: 6.125rem;
+    left: 7.014%; /*6.125rem;*/
     top: 5rem;
 }
 .productDetailContainer .first .button {

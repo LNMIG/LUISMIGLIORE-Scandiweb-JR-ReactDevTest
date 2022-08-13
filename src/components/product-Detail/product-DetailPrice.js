@@ -1,5 +1,7 @@
 import { Component } from "react";
 import './product-DetailPrice.css'
+import './product-DetailPriceMainCart.css'
+import './product-DetailPriceMiniCart.css'
 
 class ProductDetailPrice extends Component {
 
