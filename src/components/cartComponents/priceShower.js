@@ -7,7 +7,7 @@ class PriceShower extends Component {
         this.state={
             taxes: 21, //in percent. variable per country or state
             tax: 0,
-            total: 1.00,
+            total: 0,
             quantity: 0,
             symbol: '$'
         }
@@ -54,17 +54,21 @@ class PriceShower extends Component {
     render (){
 
         return (
-            <div className="justPriceWrapper">
-                <div className="justTitles">
+            <div className={this.props.typo==='mainCart' ? "justPriceWrapperMain" : "justPriceWrapperMini"}>
+                <div className="justTitles01">
                     <span className='description'>{`Tax ${this.state.taxes}%:`}</span>
                     <span className='numbers'>{this.state.symbol}{this.state.tax}</span>
                 </div>
-                <div className="justTitles">
+                <div className="justTitles01">
                     <span className='description'>Quantity:</span>
                     <span className='numbers'>{this.state.quantity}</span>
                 </div>
-                <div className="justTitles">
+                <div className="justTitles01">
                     <span className='totalamount'>Total:</span>
+                    <span className='numbers'>{this.state.symbol}{this.state.total}</span>
+                </div>
+                <div className="justTitles02">
+                    <span className='totalamount'>Total</span>
                     <span className='numbers'>{this.state.symbol}{this.state.total}</span>
                 </div>
             </div>

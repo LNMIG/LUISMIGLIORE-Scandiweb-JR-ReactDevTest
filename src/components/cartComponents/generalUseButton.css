@@ -1,6 +1,6 @@
 .classLink {
     position: relative;
-    left: 6.3125rem;
+    left: 0rem;
     
     text-decoration: none;
 }
@@ -34,6 +34,8 @@
     text-transform: uppercase;
 
     color: #FFFFFF;
+
+    cursor: not-allowed;
 }
 .viewBag {
     width: 8.75rem;

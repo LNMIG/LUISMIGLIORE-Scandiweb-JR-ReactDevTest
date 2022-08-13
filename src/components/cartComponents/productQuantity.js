@@ -2,8 +2,8 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import putNewProductAttributes from '../../redux/actions/putNewProductAttributes'
 import removeProductFromCart from '../../redux/actions/removeProductFromCart';
-import './productQuantity.css';
-
+import './productQuantityMainCart.css';
+import './productQuantityMiniCart.css';
 class ProductQuantityWrapper extends Component {
 
     constructor(props) {
@@ -61,7 +61,7 @@ class ProductQuantityWrapper extends Component {
     render (){
 
         return (
-            <div className='productQuantityWrapper'>
+            <div className={this.props.whereToShow === 'mainCart' ? 'productQuantityWrapperMainCart' : 'productQuantityWrapperMiniCart'}>
                 <button name='plus'className='square' onClick={this.onClickSquare}>
                     +
                 </button>

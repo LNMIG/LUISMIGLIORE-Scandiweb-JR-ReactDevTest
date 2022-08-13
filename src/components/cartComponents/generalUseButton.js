@@ -8,6 +8,7 @@ class ChameleonButton extends Component {
         return (
             <NavLink
                 className={this.props.classLink!=='classLinkDenied' ? `${this.props.classLink}` : 'classLinkDenied'}
+                onClick={this.props.onClick}
                 exact to={`/${this.props.navlink}`}>
                 <div
                     className={this.props.class}

@@ -1,4 +1,4 @@
-.justPriceWrapper {
+.justPriceWrapperMain {
     position: relative;
     width: 77.375rem;
     height: 7.25rem;
@@ -12,7 +12,7 @@
     justify-content: flex-start;
     align-content: flex-start;
 }
-.justPriceWrapper .justTitles {
+.justPriceWrapperMain .justTitles01 {
     width: 14rem;
     height: 1.75rem;
     gap: 0.25rem;
@@ -21,7 +21,7 @@
     justify-content: space-between;
     align-content: center;
 }
-.justPriceWrapper .justTitles .description{
+.justPriceWrapperMain .justTitles01 .description{
     width: 50%;
     font-family: 'Raleway';
     font-style: normal;
@@ -32,7 +32,7 @@
     text-align: start;
     color: #1D1F22;
 }
-.justPriceWrapper .justTitles .numbers{
+.justPriceWrapperMain .justTitles01 .numbers{
     width: 50%;
     font-family: 'Raleway';
     font-style: normal;
@@ -43,7 +43,7 @@
     text-align: start;
     color: #1D1F22;
 }
-.justPriceWrapper .justTitles .totalamount {
+.justPriceWrapperMain .justTitles01 .totalamount {
     width: 50%;
     font-family: 'Raleway';
     font-style: normal;
@@ -51,6 +51,57 @@
     font-size: 1.5rem;
     line-height: 1.75rem;
     text-align: start;
+
+    color: #1D1F22;
+}
+.justPriceWrapperMain .justTitles02 .totalamount {
+    display: none;
+}
+.justPriceWrapperMain .justTitles02 .numbers {
+    display: none;
+}
+
+.justPriceWrapperMini {
+    width: 100%;
+    min-height: 1.625rem;
+    max-height: fit-content;
+
+    background: none;
+}
+.justPriceWrapperMini .justTitles01 {
+    display: none;
+}
+.justPriceWrapperMini .justTitles01 .description{
+    display: none;
+}
+.justPriceWrapperMini .justTitles01 .numbers{
+    display: none;
+}
+.justPriceWrapperMini .justTitles02 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.justPriceWrapperMini .justTitles02 .totalamount {
+    width: 50%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.125rem;
+    text-align: start;
+
+    color: #1D1F22;
+}
+.justPriceWrapperMini .justTitles02 .numbers{
+    width: 50%;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    text-align: end;
 
     color: #1D1F22;
 }

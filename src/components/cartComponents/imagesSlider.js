@@ -1,5 +1,6 @@
 import { Component } from "react";
-import './imagesSlider.css'
+import './imagesSliderMainCart.css';
+import './imagesSliderMiniCart.css';
 
 class ImagesSlider extends Component {
 
@@ -53,7 +54,7 @@ render () {
     // console.log('RENDER4:',this.state.previous)
     // console.log('RENDER5:',this.state.galleryLength)
     return (
-        <div className="sliderContainer" >
+        <div className={this.props.whereToShow === 'mainCart' ? "sliderContainerMainCart" : "sliderContainerMiniCart"}>
             <img src={this.props.product.gallery[this.state.currentImageIndex]} alt="view here" className='imageItself'/>
             <div className="buttonsContainer">
                 <button
