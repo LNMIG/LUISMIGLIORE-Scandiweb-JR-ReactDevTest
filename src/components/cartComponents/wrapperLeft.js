@@ -8,22 +8,22 @@ class WrapperLeft extends Component {
     
     render (){
         return (
-            <div className='wrapperLeft'>
+            <div className={this.props.whereToShow === 'mainCart' ? 'wrapperLeftMainCart' : this.props.whereToShow === 'miniCart' ? 'wrapperLeftMiniCart' : 'wrapperLeft'}>
                 <BrandName 
                     brand={this.props.product.brand}
                     name={this.props.product.name}
-                    whereToShow={'mainCartBN'}
+                    whereToShow={this.props.whereToShow === 'mainCart' ? 'mainCartBN' : 'miniCartBN'}
                 />
                 <ProductDetailPrice
                     currentCurrency={this.props.currentCurrency}
                     prices={this.props.product.prices}
-                    whereToShow={'mainCartPD'}
+                    whereToShow={this.props.whereToShow === 'mainCart' ? 'mainCartPD' : 'miniCartPD'}
                 />
                 <ProductDetailAttribute
                     attributes={this.props.product.attributes}
                     state={this.props.product.attByDefault}
                     idForDeletion={this.props.product.idForDeletion}
-                    whereToShow={'mainCartPA'}
+                    whereToShow={this.props.whereToShow === 'mainCart' ? 'mainCartPA' : 'miniCartPA'}
                 />
             </div>
         )

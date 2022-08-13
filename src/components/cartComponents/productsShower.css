@@ -1,8 +1,8 @@
 .mainCartWrapper {
     position: relative;
     width: 77.375rem;
-    left: 6.3125rem;
-    right: 6.3125rem;
+    left: 7.014%; /*6.3125rem;*/
+    right: 7.014%; /*6.3125rem;*/
     padding-top: 1rem;
     padding-bottom: 1rem;
 
@@ -13,11 +13,16 @@
 
     border-bottom: 2px solid #E5E5E5;
 }
-.miniCartWrapper {
+.miniCartProductShower {
     position: relative;
-    width: 77.375rem;
-    left: 6.3125rem;
-    right: 6.3125rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    width: 100%;
+    min-height: 11.875rem;
+    max-height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    background: none;
 }

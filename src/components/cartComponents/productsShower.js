@@ -8,8 +8,8 @@ class ProductsShower extends Component {
         
         return (
             <div className={this.props.class}>
-                <WrapperLeft product={this.props.product} currentCurrency={this.props.currentCurrency}/>
-                <WrapperRight product={this.props.product}/>
+                <WrapperLeft product={this.props.product} currentCurrency={this.props.currentCurrency} whereToShow={this.props.whereToShow}/>
+                <WrapperRight product={this.props.product} whereToShow={this.props.whereToShow}/>
             </div>
         )
     }

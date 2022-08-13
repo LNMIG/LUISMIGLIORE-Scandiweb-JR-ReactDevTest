@@ -7,12 +7,14 @@ class WrapperRight extends Component {
     render (){
         
         return (
-            <div className='wrapperRight'>
+            <div className={this.props.whereToShow === 'mainCart' ? 'wrapperRightMainCart' : this.props.whereToShow === 'miniCart' ? 'wrapperRightMiniCart' : 'wrapperRight'}>
                 <ProductQuantity 
                     product={this.props.product}
+                    whereToShow={this.props.whereToShow}
                 />
                 <ImageSlider
                     product={this.props.product}
+                    whereToShow={this.props.whereToShow}
                 />
             </div>
         )
