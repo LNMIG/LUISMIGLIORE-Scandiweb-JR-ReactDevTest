@@ -1,0 +1,95 @@
+.productBoughtContainer {
+    position: relative;
+    width: 90%;
+    height: 5rem;
+    top: 1rem;
+    left: 5%;
+    right: 5%;
+    padding-bottom: 0.5rem;
+    gap: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+
+    border-bottom: 1px solid #000000;
+}
+.productBoughtContainer .imageContainer{
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+
+    box-shadow: 0px 0px 5px #e7eff3;
+}
+.productBoughtContainer .imageContainer .imageOne{  
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.productBoughtContainer .imageContainer .counter{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #000000;
+    border-radius: 1rem;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 1rem;
+    color: #ffffff;
+
+}
+.productBoughtContainer .titleAttrWrapper {
+    width: 100%;
+    height: 100%;
+}
+.productBoughtContainer .titleAttrWrapper .titleContainer{
+    width: 100%;
+    height: 50%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.productBoughtContainer .titleAttrWrapper .titleContainer .brandname{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 0.875rem;
+}
+.productBoughtContainer .titleAttrWrapper .titleContainer .price{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+.productBoughtContainer .titleAttrWrapper .attributeContainer {
+    width: 100%;
+    height: 50%;
+    gap: 0.5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+}
+.productBoughtContainer .titleAttrWrapper .attributeContainer .eachInLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}

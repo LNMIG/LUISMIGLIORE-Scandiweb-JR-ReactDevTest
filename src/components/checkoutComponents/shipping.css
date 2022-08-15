@@ -1,0 +1,17 @@
+.shipping {
+    position: relative;
+    width: 90%;
+    height: 2rem;
+    left: 5%;
+    right: 5%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 0.75rem;
+}
