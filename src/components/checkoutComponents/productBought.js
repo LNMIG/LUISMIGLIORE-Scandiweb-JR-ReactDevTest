@@ -18,6 +18,7 @@ class ProductBought extends Component {
                         <div className="" style={ returnStyle(attribute.value) }>{returnName(attribute.value)}</div>
                     </div>
         }
+
         return (
             <div className="productBoughtContainer">
                 <div className="imageContainer">
@@ -30,9 +31,9 @@ class ProductBought extends Component {
                     <div className="price">{`${this.props.product.prices[0].currency.symbol} ${this.props.product.prices[0].amount}`}</div>
                 </div>
                 <div className="attributeContainer">
-                    {this.props.product.attributes && this.props.product.attByDefault.map((attribute,index) =>
-                        returnOneToShow(attribute, index)
-                    )
+                    {this.props.product.attributes && this.props.product.attributes.length > 0
+                        ? this.props.product.attByDefault.map((attribute,index) => returnOneToShow(attribute, index))
+                        : null
                     }
                 </div>
                 </div>

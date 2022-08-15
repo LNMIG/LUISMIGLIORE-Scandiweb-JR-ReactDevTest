@@ -1,7 +1,6 @@
 import { Component } from "react";
 import './shipping.css'
 
-
 class Shipping extends Component {
     render () {
         return (

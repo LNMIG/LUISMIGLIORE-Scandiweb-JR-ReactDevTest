@@ -31,20 +31,21 @@
     position: absolute;
     top: 0%;
     right: 0%;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background: #000000;
+    background: #b85b3f;
     border-radius: 1rem;
+    border-top-right-radius: 0rem;
 
     font-family: 'Roboto';
     font-style: normal;
-    font-size: 1rem;
+    font-size: 0.75rem;
     color: #ffffff;
 
 }
