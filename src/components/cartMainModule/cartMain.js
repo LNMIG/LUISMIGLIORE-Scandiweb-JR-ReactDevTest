@@ -27,7 +27,7 @@ class MainCart extends Component {
                 </div>
                 }
                 <PriceShower products={saved} currentCurrency={currentCurrency} typo={'mainCart'}/>
-                <OrderButton classLink={'classLinkDenied'} navlink='cart' class={'order'} placeholder={'ORDER'}/>
+                <OrderButton classLink={'classLink'} navlink={'checkout'} class={'order'} placeholder={'ORDER'}/>
             </>
         )
     }

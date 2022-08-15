@@ -63,7 +63,7 @@ class MiniCart extends  Component {
 
                     <div className="buttonsContainer">
                         <ViewBagButton classLink={'classLink'} navlink={'cart'} class={'viewBag'} placeholder={'VIEW BAG'} onClick={this.onClick}/>
-                        <CheckOutButton classLink={'classLink'} navlink={''} class={'checkout'} placeholder={'CHECK OUT'}/>
+                        <CheckOutButton classLink={'classLink'} navlink={'checkout'} class={'checkout'} placeholder={'CHECK OUT'} onClick={this.onClick}/>
                     </div>
 
                 </div>

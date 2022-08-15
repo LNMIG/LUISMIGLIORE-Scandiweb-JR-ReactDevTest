@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import './priceShower.css';
+import './priceShowerMain.css';
+import './priceShowerMini.css';
+import './priceShowerCheckout.css';
 
 class PriceShower extends Component {
     constructor(props) {
@@ -54,7 +56,7 @@ class PriceShower extends Component {
     render (){
 
         return (
-            <div className={this.props.typo==='mainCart' ? "justPriceWrapperMain" : "justPriceWrapperMini"}>
+            <div className={this.props.typo==='mainCart' ? "justPriceWrapperMain" : this.props.typo==='checkout' ? 'justPriceWrapperCheckout': "justPriceWrapperMini"}>
                 <div className="justTitles01">
                     <span className='description'>{`Tax ${this.state.taxes}%:`}</span>
                     <span className='numbers'>{this.state.symbol}{this.state.tax}</span>

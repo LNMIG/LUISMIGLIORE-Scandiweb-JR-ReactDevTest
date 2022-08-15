@@ -35,7 +35,7 @@
 
     color: #FFFFFF;
 
-    cursor: not-allowed;
+    /* cursor: not-allowed; */
 }
 .viewBag {
     width: 8.75rem;
