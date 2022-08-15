@@ -1,0 +1,45 @@
+.productDetailContainer {
+    width: 100%;/*90rem;*/
+    height: 53.3125rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    left: 0rem;/*calc((100% - 90rem) / 2 );*/
+    right: calc((100% - 90rem) / 2 );
+    top: 5rem;
+    bottom: 0rem;
+    background: #FFFFFF;
+}
+.productDetailContainer .second {
+    position: absolute;
+    width: 62.625rem;
+    height: 37.1875rem;
+    left: 13.6875;
+    top: 5rem;
+}
+.productDetailContainer .second .imageMain {
+    width: 38.125rem;
+    height: 31.9375rem;
+    object-fit: contain;
+
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+.productDetailContainer .second .grouped {
+    position: absolute;
+    width: 18.25rem;
+    height: 37.1875rem;
+    right: 0px;
+    top: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap:1.875rem;
+}
