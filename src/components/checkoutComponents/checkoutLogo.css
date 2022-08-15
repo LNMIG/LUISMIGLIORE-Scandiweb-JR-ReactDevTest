@@ -1,0 +1,18 @@
+.checkoutLogo {
+    position: relative;
+    width: 90%;
+    height: 5rem;
+    top: 1rem;
+    left: 5%;
+    right: 5%;
+    padding-bottom: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+}
+.checkoutLogo .image {
+    width: 2.5rem;
+    object-fit: contain;
+}

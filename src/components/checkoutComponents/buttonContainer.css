@@ -1,0 +1,14 @@
+.chekoutButtonsContainer {
+    position: relative;
+    width: 50%;
+    height: 3rem;
+    top: 1rem;
+    left: 5%;
+    margin-bottom: 3rem;
+    gap: 5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
