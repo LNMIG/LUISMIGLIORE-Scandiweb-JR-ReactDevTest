@@ -12,7 +12,7 @@ class CurrencySelector extends Component {
         super(props)
         this.state = {
             isOpen: false,
-            currentCurrency: [{label: "USD", symbol: "$"}],
+            currentCurrency: JSON.parse(sessionStorage.getItem('currentCurrency')) || [{label: "USD", symbol: "$"}],
             }
         this.activatorRef = React.createRef(null)
         this.dropdownListRef = React.createRef(null)

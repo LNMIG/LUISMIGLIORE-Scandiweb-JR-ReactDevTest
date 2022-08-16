@@ -10,13 +10,13 @@ export class HeaderNavigation extends Component {
     constructor (props) {
         super(props);
         this.state ={
-            buttonSelected: '1',
+            buttonSelected: JSON.parse(sessionStorage.getItem('navButSelected')) ? JSON.parse(sessionStorage.getItem('navButSelected')) : '1',
             categorySelected: 'all'
         }
     }
 
     componentDidMount() {
-        this.props.postCurrentCategory(this.state.categorySelected)
+        //this.props.postCurrentCategory(this.state.categorySelected)
     }
 
     componentDidUpdate(_prevProps,prevState) {
@@ -34,6 +34,7 @@ export class HeaderNavigation extends Component {
             buttonSelected: buttonSelected.target.id,
             // categoryState: buttonSelected.target.name // Should be used if different products for women/men/kids were retrieved from DB
         }))
+        sessionStorage.setItem('navButSelected', JSON.stringify(buttonSelected.target.id))
     }
     render() {
         let buttonSelected = this.state.buttonSelected

@@ -8,8 +8,11 @@ import './cartMain.css'
 
 class MainCart extends Component {
     render (){
-        let saved = this.props.postedProductsToCart
-        let currentCurrency = this.props.postedCurrentCurrency
+        // let saved = this.props.postedProductsToCart
+        // let currentCurrency = this.props.postedCurrentCurrency
+        let saved = JSON.parse(localStorage.getItem('cart')) || this.props.postedProductsToCart
+        let currentCurrency = JSON.parse(sessionStorage.getItem('currentCurrency')) || this.props.postedCurrentCurrency
+
         return (
             <>
                 <NameShower />
@@ -38,8 +41,4 @@ const mapStateToProps = (state) => {
         postedCurrentCurrency: state.postedCurrentCurrency,
     };
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(MainCart);
+export default connect(mapStateToProps, null)(MainCart);

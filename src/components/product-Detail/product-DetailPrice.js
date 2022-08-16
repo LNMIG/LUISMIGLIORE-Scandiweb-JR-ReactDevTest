@@ -6,7 +6,6 @@ import './product-DetailPriceMiniCart.css'
 class ProductDetailPrice extends Component {
 
     render () {
-
         let currencySymbol = this.props.currentCurrency[0].symbol
         const amount = () => {
             let currentAmount = this.props.prices.filter(price => price.currency.symbol === currencySymbol)
