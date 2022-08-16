@@ -41,6 +41,7 @@ const getProductById = (productId) => {
         })
         .then(res => res.json())
         .then(json => {
+                       sessionStorage.setItem('productDetails', JSON.stringify(json.data.product))
                        dispatch({type: GET_PRODUCT_BY_ID, payload: json.data.product})
                       })
     } 

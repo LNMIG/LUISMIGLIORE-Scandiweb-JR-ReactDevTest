@@ -52,8 +52,8 @@ function reducer (state = initialState, action) {
         }
         case CLEAR_PRODUCT_DETAILS:
         return {
-            ...state,
-            productDetails: action.payload
+        ...state,
+        productDetails: action.payload
         }
         case POST_PAGINATION_DATA:
         return {

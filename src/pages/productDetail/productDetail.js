@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { v4 as uuidv4 } from 'uuid'
 import clearProductDetails from "../../redux/actions/clearProductDetails";
+import getProductById from '../../redux/actions/getProductById';
 import postProductToCart from '../../redux/actions/postProductToCart';
+import postSelectedCurrency from '../../redux/actions/postSelectedCurrency';
 import ProductDetailAttribute from "../../components/product-Detail/product-DetailAttribute";
 import ProductDetailPrice from "../../components/product-Detail/product-DetailPrice";
 import ProductDetailBrandName from '../../components/product-Detail/product-DetailBrandName';
@@ -40,7 +42,13 @@ class ProductDetail extends Component {
         stated.splice(selected.target.id, 1, {id: selected.target.name, value : selected.target.value})
         this.setState((state) => ({...state, ...stated}))
     }
-    
+
+    componentDidMount() {
+        if( Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length !== 0){
+            this.props.getProductById(JSON.parse(sessionStorage.getItem('productDetails')).id)
+            this.props.postSelectedCurrency(JSON.parse(sessionStorage.getItem('currentCurrency')))
+        }
+    }
     componentDidUpdate (prevProps, _prevState) {
         if(this.props.productDetails.id !== prevProps.productDetails.id) {
             let attributeStateLoad = []
@@ -60,12 +68,19 @@ class ProductDetail extends Component {
 
     render () {
         
-        if (Object.entries(this.props.productDetails).length === 0) {
+        if (Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length === 0) {
             return (
                 <div className='productCardLoading'>
                     <h2>Loading...</h2>
                 </div>
             )
+        }
+
+        let currentProductDetails = []
+        if (Object.entries(this.props.productDetails).length !== 0) {
+            currentProductDetails = this.props.productDetails
+        } else {
+            currentProductDetails = JSON.parse(sessionStorage.getItem('productDetails'))
         }
 
         let currentCurrency = []
@@ -75,19 +90,19 @@ class ProductDetail extends Component {
             currentCurrency = this.props.postedCurrentCurrency
         }
 
-        let currentImage = this.state.currentImage ===''? this.props.productDetails.gallery[0] : this.state.currentImage
+        let currentImage = !this.state.currentImage ? currentProductDetails.gallery[0] : this.state.currentImage
 
         return (
             <div className="productDetailContainer">
-                < ProductDetailImageSlide gallery={this.props.productDetails.gallery} onClickImage={this.onClickImage}/>
+                < ProductDetailImageSlide gallery={currentProductDetails.gallery} onClickImage={this.onClickImage}/>
                 <div className="second">
                     <img src={currentImage} alt="view here" className='imageMain'/>
                     <div className="grouped">
-                        < ProductDetailBrandName brand={this.props.productDetails.brand} name={this.props.productDetails.name}/>
-                        < ProductDetailAttribute attributes={this.props.productDetails.attributes} state={this.state} onClickAttribute={this.onClickAttribute}/>
-                        < ProductDetailPrice currentCurrency={currentCurrency} prices={this.props.productDetails.prices} />
+                        < ProductDetailBrandName brand={currentProductDetails.brand} name={this.props.productDetails.name}/>
+                        < ProductDetailAttribute attributes={currentProductDetails.attributes} state={this.state} onClickAttribute={this.onClickAttribute}/>
+                        < ProductDetailPrice currentCurrency={currentCurrency} prices={currentProductDetails.prices} />
                         < ProductDetailAddToCart onClick={this.onClickAddToCart} />
-                        < ProductDetailDescription description={this.props.productDetails.description} />
+                        < ProductDetailDescription description={currentProductDetails.description} />
                     </div>
                 </div>
             </div>
@@ -105,6 +120,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       clearProductDetails: () => dispatch(clearProductDetails()),
+      getProductById: (productId) => dispatch(getProductById(productId)),
+      postSelectedCurrency: (currentCurrency) => dispatch(postSelectedCurrency(currentCurrency)),
       postProductToCart: (pastSelection, currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
     }
   }
