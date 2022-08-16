@@ -4,14 +4,15 @@ import NameShower from '../cartComponents/nameShower';
 import ProductsShower from '../cartComponents/productsShower';
 import PriceShower from '../cartComponents/priceShower';
 import OrderButton from '../cartComponents/generalUseButton';
+import Blocker from '../blocker/blocker.js'
 import './cartMain.css'
 
 class MainCart extends Component {
     render (){
         // let saved = this.props.postedProductsToCart
         // let currentCurrency = this.props.postedCurrentCurrency
-        let saved = JSON.parse(localStorage.getItem('cart')) || this.props.postedProductsToCart
-        let currentCurrency = JSON.parse(sessionStorage.getItem('currentCurrency')) || this.props.postedCurrentCurrency
+        let saved = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
+        let currentCurrency = this.props.postedCurrentCurrency.length!==0 ? this.props.postedCurrentCurrency: JSON.parse(sessionStorage.getItem('currentCurrency'))
 
         return (
             <>
@@ -31,6 +32,7 @@ class MainCart extends Component {
                 }
                 <PriceShower products={saved} currentCurrency={currentCurrency} typo={'mainCart'}/>
                 <OrderButton classLink={'classLink'} navlink={'checkout'} class={'order'} placeholder={'ORDER'}/>
+                { this.props.blocker? < Blocker/> : null }
             </>
         )
     }
@@ -39,6 +41,7 @@ const mapStateToProps = (state) => {
     return {
         postedProductsToCart: state.postedProductsToCart,
         postedCurrentCurrency: state.postedCurrentCurrency,
+        blocker: state.blocker,
     };
 }
 export default connect(mapStateToProps, null)(MainCart);

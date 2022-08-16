@@ -15,6 +15,7 @@ class PriceShower extends Component {
         }
     }
     currency = () => {
+        console.log(this.props.currentCurrency)
         return this.props.currentCurrency.length===0 ? [{label: "USD", symbol: "$"}] : this.props.currentCurrency
     }
     total = () => {
@@ -31,25 +32,29 @@ class PriceShower extends Component {
         return this.props.products.reduce((prev, current) => prev + current.quantity, 0)
     }
     componentDidMount = () => {
-        if (this.props.products && this.props.products.length > 0) {
-            this.setState(state => ({
-                ...state,
-                total: this.total(),
-                quantity: this.quantity(),
-                symbol: this.currency()[0].symbol,
-                tax: this.tax()
-            }))
+        if (this.props.products) {
+            if (this.props.products && this.props.products.length > 0) {
+                this.setState(state => ({
+                    ...state,
+                    total: this.total(),
+                    quantity: this.quantity(),
+                    symbol: this.currency()[0].symbol,
+                    tax: this.tax()
+                }))
+            }
         }
     }
     componentDidUpdate(prevProps, _prevState) {
-        if (this.props.products !== prevProps.products || this.props.currentCurrency !== prevProps.currentCurrency) {
-            this.setState(state => ({
-                ...state,
-                total: this.total(),
-                quantity: this.quantity(),
-                symbol: this.currency()[0].symbol,
-                tax: this.tax()
-            }))
+        if (this.props.products){
+            if (this.props.products !== prevProps.products || this.props.currentCurrency !== prevProps.currentCurrency) {
+                this.setState(state => ({
+                    ...state,
+                    total: this.total(),
+                    quantity: this.quantity(),
+                    symbol: this.currency()[0].symbol,
+                    tax: this.tax()
+                }))
+            }
         }
     }
 

@@ -8,11 +8,22 @@ export class ItemCounter extends Component {
         super(props);
         this.state={counter: 0}
     }
+    componentDidMount() {
+        if(JSON.parse(localStorage.getItem('cart'))) {
+            let quantity = JSON.parse(localStorage.getItem('cart')).reduce((prev, current) => prev + current.quantity, 0)
+            this.setState({counter: quantity})
+        }
+    }
     
     componentDidUpdate (prevProps, prevState) {
         if(this.props.postedProductsToCart !== prevProps.postedProductsToCart) {
             let quantity = this.props.postedProductsToCart.reduce((prev, current) => prev + current.quantity, 0)
             this.setState({counter: quantity})
+            return
+        } else if (JSON.parse(localStorage.getItem('cart')) && this.state.counter !== prevState.counter) {
+            let quantity = JSON.parse(localStorage.getItem('cart')).reduce((prev, current) => prev + current.quantity, 0)
+            this.setState({counter: quantity})
+            return
         }
     }
 

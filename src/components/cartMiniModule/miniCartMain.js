@@ -19,20 +19,30 @@ class MiniCart extends  Component {
     }
 
     componentDidMount() {
-        let quantity = this.props.postedProductsToCart.reduce((prev, current) => prev + current.quantity, 0)
+        let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
+        if (postedProductsToCart) {
+            let quantity = postedProductsToCart.reduce((prev, current) => prev + current.quantity, 0)
             this.setState({counter: quantity})
+        }
     }
-    componentDidUpdate (prevProps, _prevState) {
+    componentDidUpdate (prevProps, prevState) {
         if(this.props.postedProductsToCart !== prevProps.postedProductsToCart) {
             let quantity = this.props.postedProductsToCart.reduce((prev, current) => prev + current.quantity, 0)
             this.setState({counter: quantity})
+            return
+        }else if (JSON.parse(localStorage.getItem('cart')) && this.state.counter !== prevState.counter) {
+            let quantity = JSON.parse(localStorage.getItem('cart')).reduce((prev, current) => prev + current.quantity, 0)
+            this.setState({counter: quantity})
+            return
         }
     }
 
     render (){
 
-        let saved = this.props.postedProductsToCart
-        let currentCurrency = this.props.postedCurrentCurrency
+        // let saved = this.props.postedProductsToCart
+        // let currentCurrency = this.props.postedCurrentCurrency
+        let saved = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
+        let currentCurrency = this.props.postedCurrentCurrency.length!==0 ? this.props.postedCurrentCurrency: JSON.parse(sessionStorage.getItem('currentCurrency'))
 
         return (
             <>

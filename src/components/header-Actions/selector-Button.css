@@ -19,3 +19,12 @@
   
     cursor: pointer;
 }
+.currencyActivator:hover {
+    border-bottom: 1px solid silver;
+    border-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #1a1b1b,
+      transparent 100%
+    ) 5;
+  }

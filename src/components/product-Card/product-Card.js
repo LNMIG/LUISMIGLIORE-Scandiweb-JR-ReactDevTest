@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import getProductById from '../../redux/actions/getProductById';
 import postProductToCart from '../../redux/actions/postProductToCart';
+import clearProductDetails from '../../redux/actions/clearProductDetails';
 import Vector from '../../assets/addToCart.png';
 import './product-Card.css';
 
@@ -21,7 +22,11 @@ class ProductCard extends Component {
     }
     onClickCartButton = (selectedProductToAdd) => {
         let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(selectedProductToAdd))
-        let copyInDeepPastProducts = JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+        let copyInDeepPastProducts = this.props.postedProductsToCart.length!==0
+            ? JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+            : JSON.parse(localStorage.getItem('cart'))
+            ? JSON.parse(localStorage.getItem('cart'))
+            : []
         
         if (copyInDeepSelectedProduct.attributes && copyInDeepSelectedProduct.attributes.length > 0) {
             this.props.postProductToCart(copyInDeepPastProducts, this.addAttrByDefault(copyInDeepSelectedProduct))
@@ -102,6 +107,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getProductById: (productId) => dispatch(getProductById(productId)),
+        clearProductDetails: () => dispatch(clearProductDetails()),
         postProductToCart: (pastSelection,currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
   }
 }

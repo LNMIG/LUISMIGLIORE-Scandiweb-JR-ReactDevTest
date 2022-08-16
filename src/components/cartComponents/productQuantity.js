@@ -18,8 +18,9 @@ class ProductQuantityWrapper extends Component {
     }
     onClickSquare = (selected) => {
         if (selected.target.name === 'plus') {
+            let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
             this.props.putNewProductAttributes(
-                this.props.postedProductsToCart,
+                postedProductsToCart,
                 this.props.product.idForDeletion,
                 {quantity: this.props.product.quantity + 1}
                 )
@@ -27,8 +28,9 @@ class ProductQuantityWrapper extends Component {
             if (this.props.product.quantity === 1) {
                 this.setState(state => ({...state, remove: true}))
             } else {
+                let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
                 this.props.putNewProductAttributes(
-                    this.props.postedProductsToCart,
+                    postedProductsToCart,
                     this.props.product.idForDeletion,
                     {quantity: this.props.product.quantity - 1}
                     )

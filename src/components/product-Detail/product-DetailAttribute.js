@@ -20,7 +20,8 @@ class ProductDetailAttribute extends Component {
 
     componentDidUpdate (_prevProps, prevState) {
         if(this.state !== prevState) {
-            this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, this.state)
+            let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart')) 
+            this.props.putNewProductAttributes(postedProductsToCart, this.props.idForDeletion, this.state)
         }
     }
 
@@ -28,7 +29,8 @@ class ProductDetailAttribute extends Component {
         
         if (!this.props.state) return <></>
         if (Object.entries(this.props.state).length === 0) {
-            return <h2>Loading...</h2>
+            // return <h2>Loading...</h2>
+            return <></>
         }
 
         const returnClassName = (state, itemValue, attributeType) => { 
