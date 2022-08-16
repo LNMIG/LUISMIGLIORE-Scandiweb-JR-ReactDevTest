@@ -7,11 +7,13 @@ import './checkoutMain.css'
 export class CheckoutMain extends Component {
 
     componentDidMount() {
-        this.props.checkoutProducts(this.props.postedProductsToCart, this.props.postedCurrentCurrency)
+        let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
+        let postedCurrentCurrency = this.props.postedCurrentCurrency.length!==0 ? this.props.postedCurrentCurrency: JSON.parse(sessionStorage.getItem('currentCurrency'))
+        this.props.checkoutProducts(postedProductsToCart, postedCurrentCurrency)
     }
 
     render() {
-        return (
+        return ( 
             <div className="checkoutContainer">
                 <Checkout />
             </div>

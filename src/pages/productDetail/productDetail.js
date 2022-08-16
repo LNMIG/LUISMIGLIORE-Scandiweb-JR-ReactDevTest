@@ -11,6 +11,7 @@ import ProductDetailBrandName from '../../components/product-Detail/product-Deta
 import ProductDetailAddToCart from '../../components/product-Detail/product-DetailAddToCart';
 import ProductDetailDescription from '../../components/product-Detail/product-DetailDescription';
 import ProductDetailImageSlide from '../../components/product-Detail/product-DetailImageSlide';
+import Blocker from '../../components/blocker/blocker.js';
 import './productDetail.css';
 
 class ProductDetail extends Component {
@@ -26,11 +27,15 @@ class ProductDetail extends Component {
 
     onClickAddToCart = () => {
         let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(this.props.productDetails))
-        let copyInDeepPastProducts = JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+        let copyInDeepPastProducts = this.props.postedProductsToCart.length!==0
+            ? JSON.parse(JSON.stringify(this.props.postedProductsToCart))
+            : JSON.parse(localStorage.getItem('cart'))
+            ? JSON.parse(localStorage.getItem('cart'))
+            : []
         copyInDeepSelectedProduct.attByDefault = Object.values(this.state).slice(0,-1)
         copyInDeepSelectedProduct.idForDeletion = uuidv4()
         copyInDeepSelectedProduct.quantity = 1
-        
+
         this.props.postProductToCart(copyInDeepPastProducts, copyInDeepSelectedProduct)
     }
 
@@ -44,8 +49,9 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        if( Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length !== 0){
-            this.props.getProductById(JSON.parse(sessionStorage.getItem('productDetails')).id)
+        // if( Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length !== 0){
+            if( Object.entries(this.props.productDetails).length === 0 && JSON.parse(sessionStorage.getItem('productDetails'))){
+        this.props.getProductById(JSON.parse(sessionStorage.getItem('productDetails')).id)
             this.props.postSelectedCurrency(JSON.parse(sessionStorage.getItem('currentCurrency')))
         }
     }
@@ -62,13 +68,13 @@ class ProductDetail extends Component {
         }
     }
 
-    componentWillUnmount(){
-        this.props.clearProductDetails()
-    }
+    // componentWillUnmount(){
+    //     this.props.clearProductDetails()
+    // }
 
     render () {
-        
-        if (Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length === 0) {
+        // if (Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length === 0) {
+            if (Object.entries(this.props.productDetails).length === 0 && !JSON.parse(sessionStorage.getItem('productDetails'))) {
             return (
                 <div className='productCardLoading'>
                     <h2>Loading...</h2>
@@ -105,6 +111,7 @@ class ProductDetail extends Component {
                         < ProductDetailDescription description={currentProductDetails.description} />
                     </div>
                 </div>
+                { this.props.blocker ? < Blocker/> : null }
             </div>
         )
     }
@@ -115,6 +122,7 @@ const mapStateToProps = (state) => {
         productDetails: state.productDetails,
         postedCurrentCurrency: state.postedCurrentCurrency,
         postedProductsToCart: state.postedProductsToCart,
+        blocker: state.blocker,
     };
 }
 const mapDispatchToProps = (dispatch) => {

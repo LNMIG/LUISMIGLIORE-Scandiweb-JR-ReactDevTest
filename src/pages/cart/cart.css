@@ -1,11 +1,12 @@
 .mainCartContainer {
     width: 90rem;
-    min-height: 89.5625rem;
-    max-height: fit-content;
+    min-height: 100vh; /*89.5625rem;*/
+    height: fit-content;
     position: absolute;
     left: calc((100% - 90rem) / 2 );
     right: calc((100% - 90rem) / 2 );
     top: 5rem;
-    bottom: 0px;
+    bottom: 0rem;
+    padding-bottom: 3rem;
     background: #FFFFFF;
 }
