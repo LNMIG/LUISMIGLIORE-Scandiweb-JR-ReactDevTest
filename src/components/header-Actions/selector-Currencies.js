@@ -53,13 +53,14 @@ class CurrencySelector extends Component {
     componentDidUpdate(_prevProps, prevState, _snapshot) {
       if (this.state.currentCurrency !== prevState.currentCurrency) {
           this.props.postSelectedCurrency(this.state.currentCurrency);
-          }
+      }
+  
       if(this.state.isOpen !== prevState.isOpen) {
         this.dropdownListRef.current.querySelector("button").focus();
         document.addEventListener("mousedown", this.clickOutsideHandler);
-        } else {
+      } else {
         document.addEventListener("mousedown", this.clickOutsideHandler);
-        }
+      }
     }
 
     render() {
@@ -67,7 +68,6 @@ class CurrencySelector extends Component {
         const currencies = this.props.allCurrencies
         const currentCurrency = <div className='currencyShow'>
                                     <span className='symbol'>{this.state.currentCurrency[0].symbol}</span>
-                                    {/* <span className='label'>{this.state.currentCurrency[0].label}</span> */}
                                 </div>
         const show = (label, symbol) => {
                 let combine = `${symbol} ${label}`
@@ -88,16 +88,15 @@ class CurrencySelector extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {
-          allCurrencies: state.allCurrencies,
+    return {
+        allCurrencies: state.allCurrencies,
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-          getAllCurrencies: () => dispatch(getAllCurrencies()),
-          postSelectedCurrency: (selected) => dispatch(postSelectedCurrency(selected)),
+    return {
+        getAllCurrencies: () => dispatch(getAllCurrencies()),
+        postSelectedCurrency: (selected) => dispatch(postSelectedCurrency(selected)),
   }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencySelector);

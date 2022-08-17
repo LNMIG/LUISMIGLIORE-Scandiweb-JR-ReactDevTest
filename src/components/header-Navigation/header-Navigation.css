@@ -1,5 +1,4 @@
 .headerNavigationContainer {
-    /* Auto layout */
     width: 14.625rem;
     height: 3.5rem;
     margin: 0rem;
@@ -18,6 +17,7 @@
 }
 .headerNavigationContainer .navlink{
     text-decoration: none;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -25,29 +25,26 @@
     flex-grow: 1;
 }
 .headerNavigationClass1 {
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
     width: auto;
     height: 3.5rem;
     gap: 1.875rem;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
     font-size: 1rem;
     line-height: 120%;
+    color: #5ECE7B;
 
-    /* identical to box height, or 19px */
     display: flex;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-
-    /* --c-primary */
-    color: #5ECE7B;
 
     background: #FFFFFF;
     border: none;
@@ -56,33 +53,29 @@
     flex-grow: 1;
 }
 .headerNavigationClass1:hover {
-    /* background: #C4C4C4; */
     cursor: pointer;
 }
 .headerNavigationClass2 {
-    /* Auto layout */
+    width: auto;
+    height: 3.5rem;
+    padding: 0px;
+    gap: 1.875rem;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    width: auto;
-    height: 3.5rem;
-    gap: 1.875rem;
 
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
     font-size: 1rem;
     line-height: 120%;
+    color: #1D1F22;
 
-    /* identical to box height, or 19px */
     display: flex;
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-
-    /* --c-text */
-    color: #1D1F22;
 
     background: #FFFFFF;
     border: none;
@@ -97,6 +90,6 @@
       #1a1b1b,
       transparent 80%
     ) 30;
-    /* background: #C4C4C4; */
+
     cursor: pointer;
 }

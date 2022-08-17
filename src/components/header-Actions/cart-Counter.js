@@ -36,7 +36,6 @@ export class ItemCounter extends Component {
     }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         postedProductsToCart: state.postedProductsToCart,

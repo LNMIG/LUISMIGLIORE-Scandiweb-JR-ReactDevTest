@@ -1,21 +1,22 @@
 .currencyWrapper {
-    /* position: relative; */
     display: inline-block;
 }
 .currencyShow {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: start;
-  background-color: inherit;
-  border: none;
-  width: max-content;
-  height: 2.5rem;
+    width: max-content;
+    height: 2.5rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+
+    background-color: inherit;
+    border: none;
 }
 .currencyShow .symbol{
-  width: 1.875rem;
+    width: 1.875rem;
 }
 .currencyShow .label{
-  width: 2.5rem;
+    width: 2.5rem;
 }

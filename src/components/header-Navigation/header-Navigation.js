@@ -15,10 +15,6 @@ export class HeaderNavigation extends Component {
         }
     }
 
-    componentDidMount() {
-        //this.props.postCurrentCategory(this.state.categorySelected)
-    }
-
     componentDidUpdate(_prevProps,prevState) {
         //if (this.state.categoryState !== prevState.categoryState) {
         //    this.props.getProductsByCategory(this.state.categoryState); // Should be used if different products for women/men/kids were retrieved from DB
@@ -37,7 +33,9 @@ export class HeaderNavigation extends Component {
         sessionStorage.setItem('navButSelected', JSON.stringify(buttonSelected.target.id))
     }
     render() {
+
         let buttonSelected = this.state.buttonSelected
+
         return (
             <div className='headerNavigationContainer'>
                 <NavLink exact to='/' className='navlink'>
@@ -80,16 +78,10 @@ export class HeaderNavigation extends Component {
     }
 }
 
-// function mapStateToProps (state) {
-//     return {
-//             allProductsByCategory: state.productsByCategory
-//     };
-//   }
-  
 const mapDispatchToProps = (dispatch) => {
-  return {
-          getProductsByCategory: (categorySelected) => dispatch(getProductsByCategory(categorySelected)),
-          postCurrentCategory: (currentCategory) => dispatch(postCurrentCategory(currentCategory))
+    return {
+        getProductsByCategory: (categorySelected) => dispatch(getProductsByCategory(categorySelected)),
+        postCurrentCategory: (currentCategory) => dispatch(postCurrentCategory(currentCategory))
   }
 }
 

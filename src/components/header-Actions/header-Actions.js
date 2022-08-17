@@ -24,14 +24,13 @@ export class HeaderActions extends Component {
 
 const mapStateToProps = (state) => {
     return {
-            allCurrencies: state.allCurrencies
+        allCurrencies: state.allCurrencies
     };
   }
-  
+
 const mapDispatchToProps = (dispatch) => {
     return {
-            getAllCurrencies: () => dispatch(getAllCurrencies()),
+        getAllCurrencies: () => dispatch(getAllCurrencies()),
     }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderActions);

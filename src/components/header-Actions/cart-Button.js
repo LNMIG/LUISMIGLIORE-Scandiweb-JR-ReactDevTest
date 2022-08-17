@@ -13,6 +13,7 @@ export class CartButton extends Component {
             isOpen: false,
         }
     }
+
     onClick = (event) => {
         console.log(event.target)
         this.props.postBlocker()
@@ -25,7 +26,7 @@ export class CartButton extends Component {
           }
       }
 
-      clickOutsideHandler = (event) => {
+    clickOutsideHandler = (event) => {
         console.log(event.target)
         if(event.target.className === 'headerDesktopContainer' || event.target.className === 'blocker'){
             this.props.postBlocker()
@@ -33,23 +34,23 @@ export class CartButton extends Component {
         }
     }
 
-      componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         document.addEventListener("mousedown", this.clickOutsideHandler);
-      }
-
+    }
 
     render () {
         return (
             <div onKeyUp={this.keyHandler}>
-            <button className='cart' onClick={this.onClick}>
-                <img className='carticon' src={Cart} alt='' />
-            </button>
+                <button className='cart' onClick={this.onClick}>
+                    <img className='carticon' src={Cart} alt='' />
+                </button>
 
-            { this.props.blocker ? <MiniCart /> : null }
+                { this.props.blocker ? <MiniCart /> : null }
             </div>
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         blocker: state.blocker,
