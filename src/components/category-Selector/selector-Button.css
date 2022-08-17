@@ -1,12 +1,14 @@
 .dropdown_activator {
-    display: flex;
-    align-items: center;
-    background-color: inherit;
-    border: none;
-    padding: 1rem 0.6rem;
     width: 31.25rem;
     height: 4.25rem;
-  
+    padding: 1rem 0.6rem;
+
+    display: flex;
+    align-items: center;
+
+    background-color: inherit;
+    border: none;
+
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 400;
@@ -17,11 +19,11 @@
     cursor: pointer;
 }
 .dropdown_activator:hover {
- border-bottom: 2px solid silver;
- border-image: linear-gradient(
-     to right,
-     transparent 0%,
-     #1a1b1b,
-     transparent 80%
-   ) 30;
+    border-bottom: 2px solid silver;
+    border-image: linear-gradient(
+        to right,
+        transparent 0%,
+        #1a1b1b,
+        transparent 80%
+      ) 30;
 }

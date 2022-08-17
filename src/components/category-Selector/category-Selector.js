@@ -29,7 +29,7 @@ class CategorySelector extends Component {
     keyHandler = (event) => {
       if (event.key === "Escape" && this.state.isOpen) {
         this.setState(prevState => ({...prevState, isOpen: false}));
-        }
+      }
     }
   
     clickOutsideHandler = (event) => {
@@ -38,7 +38,7 @@ class CategorySelector extends Component {
           return;
           }
           this.setState(prevState => ({...prevState, isOpen: false}));
-          }
+        }
     }
 
     onClickButton = (selectedCategory) => {
@@ -63,10 +63,11 @@ class CategorySelector extends Component {
     componentDidUpdate(prevProps, prevState, _snapshot) {
         if (this.state.currentCategory !== prevState.currentCategory) {
             this.props.getProductsByCategory(this.state.currentCategory.toLowerCase());
+
             this.selectedProductsByCategory = []
             let allCategories = this.props.allCategories.length > 0 ? this.props.allCategories : JSON.parse(sessionStorage.getItem('allCategories'))
+
             if (this.state.currentCategory === allCategories[0].name) {
-            // if (this.state.currentCategory === this.props.allCategories[0].name) {
               this.selectedProductsByCategory = this.filteredProducts
               } else {
               this.selectedProductsByCategory = this.filteredProducts.filter(each => each.category === this.state.currentCategory)
@@ -79,10 +80,11 @@ class CategorySelector extends Component {
           document.addEventListener("mousedown", this.clickOutsideHandler);
           } else {
           document.addEventListener("mousedown", this.clickOutsideHandler);
-          }
+        }
+
         if(this.props.postedCurrentCategory !== prevProps.postedCurrentCategory) {
           this.setState(prevState => ({...prevState, currentCategory: this.props.postedCurrentCategory.currentCategory}));
-          }
+        }
     }
 
     render () {
