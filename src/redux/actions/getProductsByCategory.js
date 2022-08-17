@@ -46,7 +46,7 @@ const getProductsByCategory = (categoryInput = "all") => {
         })
         .then(res => res.json())
         .then(json => {
-                dispatch({type: GET_PRODUCTS_BY_CATEGORY, payload: json.data.category.products})
+                        dispatch({type: GET_PRODUCTS_BY_CATEGORY, payload: json.data.category.products})
                       })
     } 
 }

@@ -15,7 +15,7 @@ const getAllCategories = () => {
         })
         .then(res => res.json())
         .then(json => {
-                      sessionStorage.setItem('allCategories',JSON.stringify(json.data.categories))
+                       sessionStorage.setItem('allCategories',JSON.stringify(json.data.categories))
                        dispatch({type: GET_ALL_CATEGORIES, payload: json.data.categories})
                       })
     } 
