@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
 import { v4 as uuidv4 } from 'uuid'
-import clearProductDetails from "../../redux/actions/clearProductDetails";
+import { connect } from "react-redux";
+import React, { Component } from "react";
 import getProductById from '../../redux/actions/getProductById';
 import postProductToCart from '../../redux/actions/postProductToCart';
+import clearProductDetails from "../../redux/actions/clearProductDetails";
 import postSelectedCurrency from '../../redux/actions/postSelectedCurrency';
 import ProductDetailAttribute from "../../components/product-Detail/product-DetailAttribute";
 import ProductDetailPrice from "../../components/product-Detail/product-DetailPrice";
@@ -49,10 +49,14 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        // if( Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length !== 0){
-            if( Object.entries(this.props.productDetails).length === 0 && JSON.parse(sessionStorage.getItem('productDetails'))){
-        this.props.getProductById(JSON.parse(sessionStorage.getItem('productDetails')).id)
-            this.props.postSelectedCurrency(JSON.parse(sessionStorage.getItem('currentCurrency')))
+        if( Object.entries(this.props.productDetails).length === 0 && JSON.parse(sessionStorage.getItem('productDetails'))){
+            if (this.props.match.params.id) {
+                this.props.getProductById(this.props.match.params.id)
+                this.props.postSelectedCurrency(JSON.parse(sessionStorage.getItem('currentCurrency')))
+            } else {
+                this.props.getProductById(JSON.parse(sessionStorage.getItem('productDetails')).id)
+                this.props.postSelectedCurrency(JSON.parse(sessionStorage.getItem('currentCurrency')))
+            }
         }
     }
     componentDidUpdate (prevProps, _prevState) {
@@ -73,8 +77,8 @@ class ProductDetail extends Component {
     // }
 
     render () {
-        // if (Object.entries(this.props.productDetails).length === 0 && Object.entries(JSON.parse(sessionStorage.getItem('productDetails'))).length === 0) {
-            if (Object.entries(this.props.productDetails).length === 0 && !JSON.parse(sessionStorage.getItem('productDetails'))) {
+
+        if (Object.entries(this.props.productDetails).length === 0 && !JSON.parse(sessionStorage.getItem('productDetails'))) {
             return (
                 <div className='productCardLoading'>
                     <h2>Loading...</h2>
@@ -127,10 +131,10 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-      clearProductDetails: () => dispatch(clearProductDetails()),
-      getProductById: (productId) => dispatch(getProductById(productId)),
-      postSelectedCurrency: (currentCurrency) => dispatch(postSelectedCurrency(currentCurrency)),
-      postProductToCart: (pastSelection, currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
+        clearProductDetails: () => dispatch(clearProductDetails()),
+        getProductById: (productId) => dispatch(getProductById(productId)),
+        postSelectedCurrency: (currentCurrency) => dispatch(postSelectedCurrency(currentCurrency)),
+        postProductToCart: (pastSelection, currentSelection) => dispatch(postProductToCart(pastSelection, currentSelection)),
     }
   }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)

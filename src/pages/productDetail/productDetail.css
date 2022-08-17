@@ -1,10 +1,12 @@
 .productDetailContainer {
     width: 100%;/*90rem;*/
     height: 53.3125rem;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
+    
     position: absolute;
     left: 0rem;/*calc((100% - 90rem) / 2 );*/
     right: calc((100% - 90rem) / 2 );
@@ -13,9 +15,10 @@
     background: #FFFFFF;
 }
 .productDetailContainer .second {
-    position: absolute;
     width: 62.625rem;
     height: 37.1875rem;
+
+    position: absolute;
     left: 13.6875;
     top: 5rem;
 }
@@ -31,9 +34,10 @@
     bottom: 0%;
 }
 .productDetailContainer .second .grouped {
-    position: absolute;
     width: 18.25rem;
     height: 37.1875rem;
+
+    position: absolute;
     right: 0px;
     top: 0px;
 

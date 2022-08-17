@@ -2,11 +2,13 @@
     width: 100%;/*90rem;*/
     min-height: 89.5625rem;
     max-height: 100%;
+
     position: absolute;
-    left: 0rem; /*calc((100% - 90rem) / 2 );*/
+    left: 0rem;
     right: calc((100% - 90rem) / 2 );
     top: 5.1rem;
     bottom: 0rem;
+    
     background: #FFFFFF;
 }
 .mainContainer .blocker {
@@ -18,13 +20,13 @@
     background-color: rgba(0,0,0,0.4);
 }
 .productsContainer {
-    
     width: 77.5rem;
     height: 61.25rem;
-    background: #FFFFFF;
 
     position:absolute;
     left: calc((100% - 77.5rem) / 2 );
     right: calc((100% - 77.5rem) / 2 );
     top: 15.625rem;
+
+    background: #FFFFFF;
 }

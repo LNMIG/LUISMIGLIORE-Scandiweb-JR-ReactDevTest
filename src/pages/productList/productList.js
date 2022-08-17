@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import CategorySelector from '../../components/category-Selector/category-Selector';
 import Pagination from '../../components/pagination/pagination';
 import ProductCard from '../../components/product-Card/product-Card';

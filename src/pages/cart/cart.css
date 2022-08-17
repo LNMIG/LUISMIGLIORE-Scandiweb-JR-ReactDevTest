@@ -2,6 +2,7 @@
     width: 90rem;
     min-height: 100vh; /*89.5625rem;*/
     height: fit-content;
+    
     position: absolute;
     left: calc((100% - 90rem) / 2 );
     right: calc((100% - 90rem) / 2 );
