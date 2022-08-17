@@ -9,8 +9,7 @@ import './cartMain.css'
 
 class MainCart extends Component {
     render (){
-        // let saved = this.props.postedProductsToCart
-        // let currentCurrency = this.props.postedCurrentCurrency
+
         let saved = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
         let currentCurrency = this.props.postedCurrentCurrency.length!==0 ? this.props.postedCurrentCurrency: JSON.parse(sessionStorage.getItem('currentCurrency'))
 
