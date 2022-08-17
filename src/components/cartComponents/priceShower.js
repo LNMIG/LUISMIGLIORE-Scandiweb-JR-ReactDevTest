@@ -14,10 +14,12 @@ class PriceShower extends Component {
             symbol: '$'
         }
     }
+
     currency = () => {
         console.log(this.props.currentCurrency)
         return this.props.currentCurrency.length===0 ? [{label: "USD", symbol: "$"}] : this.props.currentCurrency
     }
+
     total = () => {
         let total = this.props.products.reduce((prev, current) => 
             prev + (current.prices.filter(each=> 
@@ -25,12 +27,15 @@ class PriceShower extends Component {
         total = +(Math.round(total + "e+2") + "e-2")
         return total
     }
+
     tax = () => {
         return +(Math.round(this.total()*this.state.taxes/100 + "e+2") +"e-2")
     }
+
     quantity = () => {
         return this.props.products.reduce((prev, current) => prev + current.quantity, 0)
     }
+
     componentDidMount = () => {
         if (this.props.products) {
             if (this.props.products && this.props.products.length > 0) {

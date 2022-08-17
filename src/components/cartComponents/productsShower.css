@@ -1,10 +1,11 @@
 .mainCartWrapper {
-    position: relative;
     width: 77.375rem;
-    left: 7.014%; /*6.3125rem;*/
-    right: 7.014%; /*6.3125rem;*/
     padding-top: 1rem;
     padding-bottom: 1rem;
+
+    position: relative;
+    left: 7.014%; /*6.3125rem;*/
+    right: 7.014%; /*6.3125rem;*/
 
     display: flex;
     flex-direction: row;
@@ -14,11 +15,12 @@
     border-bottom: 2px solid #E5E5E5;
 }
 .miniCartProductShower {
-    position: relative;
     width: 100%;
     min-height: 11.875rem;
     max-height: fit-content;
 
+    position: relative;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;

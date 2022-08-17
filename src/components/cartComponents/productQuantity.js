@@ -12,10 +12,12 @@ class ProductQuantityWrapper extends Component {
             remove: false,
         }
     }
+
     remove = (selected) => {
         this.props.removeProductFromCart(selected)
         this.setState(state => ({...state, remove: false}))
     }
+
     onClickSquare = (selected) => {
         if (selected.target.name === 'plus') {
             let postedProductsToCart = this.props.postedProductsToCart.length!==0 ? this.props.postedProductsToCart : JSON.parse(localStorage.getItem('cart'))
@@ -36,30 +38,14 @@ class ProductQuantityWrapper extends Component {
                     )
             }
         }
-        // ? this.setState(state => ({...state, quantity: this.state.quantity - 1}))
-        // : this.setState(state => ({...state, quantity: this.state.quantity + 1}))
     }
+
     onClickRemove = (selected) => {
         selected.target.name=== 'YES'
         ? this.remove(selected.target.value)
         : this.setState(state => ({...state, remove: false}))
     }
 
-    // componentDidMount(){
-    //     if (this.props.product.quantity && this.props.product.quantity !== 0) {
-    //         this.setState(state => ({...state, quantity: this.props.quantity}))
-    //     }
-    // }
-    // componentDidUpdate(prevProps, prevState) {
-    //     if(this.state.quantity !== prevState.quantity) {
-    //         if(this.state.quantity>0) {
-    //             this.props.putNewProductAttributes(this.props.postedProductsToCart, this.props.idForDeletion, {quantity: this.state.quantity})
-    //         } else {
-    //             this.setState(state => ({...state, remove: true}))
-    //         }
-    //     }
-    // }
-    
     render (){
 
         return (
@@ -67,12 +53,15 @@ class ProductQuantityWrapper extends Component {
                 <button name='plus'className='square' onClick={this.onClickSquare}>
                     +
                 </button>
+
                 <span className='productQuantity'>
                     {this.props.product.quantity}
                 </span>
+
                 <button name='minus' className='square' onClick={this.onClickSquare}>
                     -
                 </button>
+
                 <span name='remove' className={this.state.remove? 'remove' : 'keep'}>
                     <p>Do you really want to remove this product from your bag?</p>
                     <div className='buttonsContainer'>

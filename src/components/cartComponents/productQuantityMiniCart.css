@@ -11,13 +11,13 @@
     width: 1.5rem;
     height: 1.5rem;
 
-    background: none;
-    border: 1px solid #1D1F22;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    background: none;
+    border: 1px solid #1D1F22;
 
     font-family: 'Raleway';
     font-style: normal ;
@@ -50,21 +50,22 @@
     display: none;
 }
 .productQuantityWrapperMiniCart .remove {
-    position: absolute;
     min-height: 11.875rem;
     height: 100%;
     display:block;
+
+    position: absolute;
     left: 0rem;
     right: 0rem;
     z-index: 10000;
-
-    background-color: rgba(0,0,0,0.6);
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    background-color: rgba(0,0,0,0.6);
 
     font-family: 'Raleway';
     font-style: normal;
@@ -82,13 +83,13 @@
     justify-content: center;
     align-content: center;
 
-    border: none;
-    background: none;
-
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+
+    border: none;
+    background: none;
 }
 .productQuantityWrapperMiniCart .remove .buttonsContainer .buttons{
     width: 2.5rem;
@@ -99,15 +100,15 @@
     justify-content: center;
     align-items: center;
 
-    border: 2px solid #ffffff;
-    border-radius: 0.625rem;
-    background: none;
-
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1.5rem;
+
+    border: 2px solid #ffffff;
+    border-radius: 0.625rem;
+    background: none;
 
     color: #ffffff;
     cursor: pointer;
