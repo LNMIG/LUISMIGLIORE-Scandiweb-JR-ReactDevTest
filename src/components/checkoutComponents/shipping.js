@@ -5,7 +5,8 @@ class Shipping extends Component {
     render () {
         return (
             <div className="shipping">
-                <div>Shipping</div><div>Calculated at next step</div>
+                <div>Shipping</div>
+                <div>Calculated at next step</div>
             </div>
         )
     }

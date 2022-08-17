@@ -10,9 +10,11 @@ class ExpressCheckout extends Component {
                 <button className="shopPay">
                     <img src={shopPay} alt='shopPay' className="image"></img>
                 </button>
+
                 <button className="PayPal">
                     <img src={Paypal} alt='paypal' className="image"></img>
                 </button>
+                
                 <div className="title">Express checkout</div>
             </div>
         )

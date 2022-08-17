@@ -1,11 +1,12 @@
 .checkoutLogo {
-    position: relative;
     width: 90%;
     height: 5rem;
+    padding-bottom: 0.5rem;
+
+    position: relative;
     top: 1rem;
     left: 5%;
     right: 5%;
-    padding-bottom: 0.5rem;
 
     display: flex;
     flex-direction: column;
