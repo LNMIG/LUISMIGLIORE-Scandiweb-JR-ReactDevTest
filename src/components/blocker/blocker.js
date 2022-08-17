@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-
 class Blocker extends  Component {
 
     render (){
