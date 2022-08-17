@@ -8,7 +8,7 @@ class Pagination extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            counter: 0,
+            counter:  0,
             currentpage: 1,
             itemsPerPage: 6,
             numberOfPages: 0,
@@ -30,15 +30,26 @@ class Pagination extends Component {
         if(selected.target.name === 'prev') this.setState(state => ({...state, currentpage: this.state.currentpage - 1}))
     }
 
+    componentDidMount() {
+        if(!JSON.parse(sessionStorage.getItem('currentPage'))) sessionStorage.setItem('currentPage', JSON.stringify(1))
+    }
+
     componentDidUpdate (prevProps, prevState) {
-        if(this.props.productsByCategory !== prevProps.productsByCategory) {
+
+        if (this.props.postedCurrentCategory !== prevProps.postedCurrentCategory) {
+            sessionStorage.setItem('currentPage', JSON.stringify(1))
+        }
+
+        if (this.props.productsByCategory !== prevProps.productsByCategory) {
+            let existNPage = JSON.parse(sessionStorage.getItem('currentPage'))
+            let existPState = JSON.parse(sessionStorage.getItem('currentPageState'))
             this.setState(state => ({...state,  
-                counter: this.state.counter +1,
-                currentpage: 1,
+                counter: this.state.counter + 1,
+                currentpage: existNPage ? existNPage : 1,
                 numberOfPages: 0,
                 localProductsByCategory: this.props.productsByCategory,
-                previous: false,
-                next: false,
+                previous: existPState ? existPState.previous : false,
+                next: existPState ? existPState.next : false,
             }))
             this.setState(state => ({...state,
                 numberOfPages: Math.ceil(this.props.productsByCategory.length / this.state.itemsPerPage)
@@ -48,12 +59,21 @@ class Pagination extends Component {
         if (this.state.counter !== prevState.counter) {
             this.onSlice(this.state.itemsPerPage, this.state.currentpage, this.state.localProductsByCategory)
             if (this.state.currentpage !== this.state.numberOfPages) this.setState(state=> ({...state, next: true}))
+            if (this.state.currentpage === this.state.numberOfPages) this.setState(state=> ({...state, next: false}))
+            if (this.state.currentpage === 1 ) this.setState(state=> ({...state, previous: false}))
         }
 
         if (this.state.currentpage !== prevState.currentpage && this.state.counter === prevState.counter) {
-            if(this.state.currentpage === 1) this.setState(state => ({...state, previous: false, next: true}))
-            if(this.state.currentpage === this.state.numberOfPages) this.setState(state => ({...state, next: false, previous: true}))
+            if(this.state.currentpage === 1) {
+                this.setState(state => ({...state, previous: false, next: true}))
+                sessionStorage.setItem('currentPageState', JSON.stringify({previous: false, next: true}))
+            }
+            if(this.state.currentpage === this.state.numberOfPages) {
+                this.setState(state => ({...state, previous: true, next: false }))
+                sessionStorage.setItem('currentPageState', JSON.stringify({previous: true, next: false}))
+            }
             this.onSlice(this.state.itemsPerPage, this.state.currentpage, this.state.localProductsByCategory)
+            sessionStorage.setItem('currentPage', JSON.stringify(this.state.currentpage))
         }
     }
 
@@ -62,6 +82,7 @@ class Pagination extends Component {
     }
 
     render () {
+
         return (
             <div className="pagination_wrapper">
                 <button
@@ -90,6 +111,7 @@ class Pagination extends Component {
 const mapStateToProps = (state) => {
     return {
       productsByCategory: state.productsByCategory,
+      postedCurrentCategory: state.postedCurrentCategory,
     }
   }
   
