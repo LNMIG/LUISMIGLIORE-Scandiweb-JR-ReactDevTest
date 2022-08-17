@@ -1,6 +1,7 @@
 .miniCartPD {
     width: 100%;
     height: 1.625rem;
+    
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -12,15 +13,14 @@
 .miniCartPD .amount{
     width: 100%;
     
+    display: flex;
+    align-items: center;
+    text-align: center;
+
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
     line-height: 1.625rem;
-    
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
     color: #1D1F22;
 }

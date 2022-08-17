@@ -1,19 +1,18 @@
 .productCardLoading {
+    width: 22.125rem;
+    height: 25.75rem; 
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    /* position: absolute; */
-    width: 22.125rem;
-    height: 25.75rem; 
-
-    /* --c-white */
     background: #FFFFFF;
 }
 .wraperProductCard {
     width: 100%;
     height: 100%;  
+
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -22,37 +21,34 @@
     z-index: 500;
 }
 .productCardContainer {
-    /* Auto layout */
+    width: 22.125rem;
+    height: 25.75rem;  
+    padding: 1rem;
+
     position:relative;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding: 1rem;
 
-    /* position: absolute; */
-    width: 22.125rem;
-    height: 25.75rem;  
-
-    /* --c-white */
     background: #FFFFFF;
 
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
 }
 .productCardContainer:hover {
-    /* --product-card-box-shadow:hover */
     box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
 }
 .productCardContainer .navlink {
     text-decoration: none;
 }
 .productCardContainer .imageContainer {
-    position: relative;
     width: 100%;
     height: 20.625rem;
+
+    position: relative;
 
     display: flex;
     flex-direction: row;
@@ -60,22 +56,21 @@
     align-items: center;
 }
 .productCardContainer .imageContainer .image {
-    /* Image */
     width: 100%;
     height: 20.3125rem;
+
     background: #C4C4C4;
 
-    /* Inside auto layout */
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
 .productCardContainer .imageContainer .circleIcon {
-    /* Circle Icon */
-    position: absolute;
     width: 3.25rem;
     height: 3.25rem;
+
+    position: absolute;
     right: 0.9375rem;
     bottom: -1.625rem;
     z-index: 1000;
@@ -89,10 +84,8 @@
     top: 0%;
     bottom: 0%;
 
-    /* --button-box-shadow */
     filter: drop-shadow(0px 4px 11px rgba(29, 31, 34, 0.1));
 
-    /* --c-primary */
     background: #5ECE7B;
     border-radius: 1.625rem;
     border: none;
@@ -108,50 +101,43 @@
     bottom: 4.15%;
 }
 .productCardContainer .image .badge {
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 3.8125rem;
+    height: 2.1875rem;
     padding: 0.5rem 1rem;
     gap: 0.625rem;
 
     position: absolute;
     visibility: hidden;
-    width: 3.8125rem;
-    height: 2.1875rem;
     left: 0px;
     top: 0.5rem;
 
-    /* --c-primary */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     background: #5ECE7B;
 }
 .productCardContainer .image .badge .label {
     width: 1.8125rem;
     height: 1.1875rem;
 
-    /* --badge-font */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
     font-size: 0.75rem;
     line-height: 160%;
-
-    /* or 19px */
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    /* --c-white */
     color: #FFFFFF;
 
-    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
 }
 .productCardContainer .spacer {
-    /* _layout / --spacer-base */
     width: 1.5rem;
     height: 1.5rem;
     margin: 0%;
@@ -159,16 +145,15 @@
     margin-right: auto;
 }
 .productCardContainer .content {
-    /* Auto layout */
+    width: 22.125rem;
+    height: 3.625rem;
+    padding: 0rem;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0rem;
-    width: 22.125rem;
-    height: 3.625rem;
 
-    /* Inside auto layout */
     flex: none;
     order: 2;
     align-self: stretch;
@@ -183,57 +168,43 @@
     font-weight: 300;
     font-size: 1.125rem;
     line-height: 160%;
+    color: #1D1F22;
 
-    /* identical to box height, or 29px */
     display: flex;
     align-items: center;
 
-    /* --c-black */
-    color: #1D1F22;
-
-    /* Inside auto layout */
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
 .productCardContainer .element {
-    /* Auto layout */
-    padding: 0rem;
-    gap: 0.625rem;
-
     width: 22.125rem;
     height: 1.8125rem;
-
-    /* --price-regular-font */
+    padding: 0rem;
+    gap: 0.625rem;
 
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 1.125rem;
     line-height: 160%;
-
-    /* --c-black */
     color: #1D1F22;
 }
 .outOfStock{
-    /* Auto layout */
+    width: 22.125rem;
+    height: 25.75rem;  
+    padding: 1rem;
+
     position:relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding: 1rem;
 
-    /* position: absolute; */
-    width: 22.125rem;
-    height: 25.75rem;  
-
-    /* --c-white */
     background: #FFFFFF;
     opacity: 0.5;
 
-    /* Inside auto layout */
     flex: none;
     order: 0;
     flex-grow: 0;
@@ -243,25 +214,24 @@
     cursor: not-allowed;
 }
 .outOfStock .imageContainer {
-    position: relative;
     width: 22.125rem;
     height: 20.625rem;
+
+    position: relative;
     background: #C4C4C4;
 }
 .outOfStock .imageContainer .image {
-    /* Image */
     width: 22.125rem;
     height: 20.625rem;
-    background: #C4C4C4;
 
-    /* Inside auto layout */
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
+
+    background: #C4C4C4;
 }
 .outOfStock .spacer {
-    /* _layout / --spacer-base */
     width: 1.5rem;
     height: 1.5rem;
     margin: 0%;
@@ -269,17 +239,15 @@
     margin-right: auto;
 }
 .outOfStock .content {
-    /* Auto layout */
+    width: 22.125rem;
+    height: 3.625rem;
+    padding: 0rem;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0rem;
 
-    width: 22.125rem;
-    height: 3.625rem;
-
-    /* Inside auto layout */
     flex: none;
     order: 2;
     align-self: stretch;
@@ -294,38 +262,27 @@
     font-weight: 300;
     font-size: 1.125rem;
     line-height: 160%;
+    color: #1D1F22;
 
-    /* identical to box height, or 29px */
     display: flex;
     align-items: center;
 
-    /* --c-black */
-    color: #1D1F22;
-
-
-    /* Inside auto layout */
     flex: none;
     order: 0;
     align-self: stretch;
     flex-grow: 0;
 }
 .outOfStock .element {
-    /* Auto layout */
-    padding: 0px;
-    gap: 0.625rem;
-
     width: 22.125rem;
     height: 1.8125rem;
-
-    /* --price-regular-font */
+    padding: 0px;
+    gap: 0.625rem;
 
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 500;
     font-size: 1.125rem;
     line-height: 160%;
-
-    /* --c-black */
     color: #1D1F22;
 }
 .outOfStock .noStock {
@@ -340,10 +297,8 @@
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 160%;
-    /* identical to box height, or 38px */
-    
+    color: #8D8F9A;
+
     display: flex;
     align-items: center;
-    
-    color: #8D8F9A;
 }

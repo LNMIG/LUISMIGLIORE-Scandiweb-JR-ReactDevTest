@@ -1,15 +1,16 @@
 .productDetailContainer .first {
+    width: 5rem;
+    height: 37.1875rem;
+
+    position: absolute;
+    left: 7.014%; /*6.125rem;*/
+    top: 5rem;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 0.3125rem;
-
-    position: absolute;
-    width: 5rem;
-    height: 37.1875rem;
-    left: 7.014%; /*6.125rem;*/
-    top: 5rem;
 }
 .productDetailContainer .first .button {
     width: 5rem;
@@ -28,5 +29,4 @@
     width: 100%;
     height:100%;
     object-fit: contain;
-    /* background: #C4C4C4; */
 }

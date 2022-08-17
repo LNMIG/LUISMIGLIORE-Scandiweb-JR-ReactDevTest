@@ -1,7 +1,9 @@
 .mainCartBN {
-    position: relative;
     width: 100%;
     height: 4.375rem;
+
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,7 +19,6 @@
     font-weight: 600;
     font-size: 1.875rem;
     line-height: 1.875rem;
-    /* identical to box height, or 90% */
     
     display: flex;
     align-items: center;
@@ -33,7 +34,6 @@
     font-weight: 400;
     font-size: 1.875rem;
     line-height: 1.875rem;
-    /* identical to box height, or 90% */
 
     display: flex;
     align-items: center;

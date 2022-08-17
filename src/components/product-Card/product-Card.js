@@ -1,7 +1,7 @@
+import { v4 as uuidv4 } from 'uuid';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 import getProductById from '../../redux/actions/getProductById';
 import postProductToCart from '../../redux/actions/postProductToCart';
 import clearProductDetails from '../../redux/actions/clearProductDetails';
@@ -98,10 +98,10 @@ class ProductCard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-            productsByCategory: state.productsByCategory,
-            paginationData: state.paginationData,
-            postedCurrentCurrency: state.postedCurrentCurrency,
-            postedProductsToCart: state.postedProductsToCart,
+        productsByCategory: state.productsByCategory,
+        paginationData: state.paginationData,
+        postedCurrentCurrency: state.postedCurrentCurrency,
+        postedProductsToCart: state.postedProductsToCart,
     };
 }
 const mapDispatchToProps = (dispatch) => {

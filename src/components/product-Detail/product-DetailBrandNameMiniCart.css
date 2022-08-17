@@ -1,8 +1,10 @@
 .miniCartBN {
-    position: relative;
     width: 100%;
     min-height: 3.25rem;
     max-height: max-content;
+
+    position: relative;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;

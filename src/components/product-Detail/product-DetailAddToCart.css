@@ -1,23 +1,19 @@
 .productDetailContainer .second .grouped .button{
-    /* Auto layout */
+    width: 100%;
+    height: 3.25rem;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    width: 100%;
-    height: 3.25rem;
-    
+
     background: #5ECE7B;
     border: none;
 
-    /* --button-font */
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
     font-size: 1rem;
-
-    /* --c-white */
     color: #FFFFFF;
     cursor: pointer;
 }

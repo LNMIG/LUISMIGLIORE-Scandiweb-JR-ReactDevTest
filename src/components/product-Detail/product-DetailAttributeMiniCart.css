@@ -69,7 +69,6 @@
     cursor:pointer;
 }
 .miniCartPA .attributeWraper .attributeItems .textSelected{
-
     box-sizing: border-box;
 
     min-width: 1.5rem;
@@ -95,7 +94,6 @@
     box-shadow: 0px 0px 15px grey;
 }
 .miniCartPA .attributeWraper .attributeItems .swatch{
-    
     width: 1rem;
     height: 1rem;
     background: none;
@@ -104,7 +102,6 @@
     cursor: pointer;
 }
 .miniCartPA .attributeWraper .attributeItems .swatchSelected{
-    
     width: 1rem;
     height: 1rem;
     outline: 1px solid #5ECE7B;
