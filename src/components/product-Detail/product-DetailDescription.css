@@ -1,6 +1,7 @@
 .productDetailContainer .second .grouped .description{
     width: 100%;
     height: 6.4375rem;
+    overflow-y: scroll;
 
     font-family: 'Roboto';
     font-style: normal;
