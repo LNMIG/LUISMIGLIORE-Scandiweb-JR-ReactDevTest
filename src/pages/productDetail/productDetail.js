@@ -11,6 +11,7 @@ import ProductDetailBrandName from '../../components/product-Detail/product-Deta
 import ProductDetailAddToCart from '../../components/product-Detail/product-DetailAddToCart';
 import ProductDetailDescription from '../../components/product-Detail/product-DetailDescription';
 import ProductDetailImageSlide from '../../components/product-Detail/product-DetailImageSlide';
+import HeaderDesktop from '../../components/header-Desktop/header-Desktop';
 import Blocker from '../../components/blocker/blocker.js';
 import './productDetail.css';
 
@@ -103,6 +104,8 @@ class ProductDetail extends Component {
         let currentImage = !this.state.currentImage ? currentProductDetails.gallery[0] : this.state.currentImage
 
         return (
+            <>
+            < HeaderDesktop />
             <div className="productDetailContainer">
                 < ProductDetailImageSlide gallery={currentProductDetails.gallery} onClickImage={this.onClickImage}/>
                 <div className="second">
@@ -117,6 +120,7 @@ class ProductDetail extends Component {
                 </div>
                 { this.props.blocker ? < Blocker/> : null }
             </div>
+            </>
         )
     }
 }

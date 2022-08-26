@@ -4,12 +4,15 @@ import CategorySelector from '../../components/category-Selector/category-Select
 import Pagination from '../../components/pagination/pagination';
 import ProductCard from '../../components/product-Card/product-Card';
 import Blocker from '../../components/blocker/blocker.js';
+import HeaderDesktop from '../../components/header-Desktop/header-Desktop';
 import './productList.css'
 
 export class Category extends Component {
     
     render() {
         return (
+            <>
+            < HeaderDesktop />
             <div className="mainContainer">
                 <CategorySelector />
                 <Pagination />
@@ -18,6 +21,7 @@ export class Category extends Component {
                 </div>
                 { this.props.blocker ? < Blocker/> : null }
             </div>
+            </>
         );
     };
 };

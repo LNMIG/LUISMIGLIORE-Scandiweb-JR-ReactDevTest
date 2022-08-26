@@ -1,14 +1,16 @@
 import { Component } from "react";
 import MainCart from "../../components/cartMainModule/cartMain";
+import HeaderDesktop from '../../components/header-Desktop/header-Desktop';
 import './cart.css'
 class Cart extends Component {
     render (){
-
         return (
-            <div className="mainCartContainer">
-                <MainCart />
-            </div>
-            
+            <>
+                < HeaderDesktop />
+                <div className="mainCartContainer">
+                    <MainCart />
+                </div>
+            </>
         )
     }
 }
