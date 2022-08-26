@@ -38,7 +38,7 @@ export class HeaderNavigation extends Component {
 
         return (
             <div className='headerNavigationContainer'>
-                <NavLink exact to='/' className='navlink'>
+                <NavLink exact to='/productslist' className='navlink'>
                 <button
                     id='1'
                     name='women'
@@ -50,7 +50,7 @@ export class HeaderNavigation extends Component {
                 </button>
                 </NavLink>
 
-                <NavLink exact to='/' className='navlink'>
+                <NavLink exact to='/productslist' className='navlink'>
                 <button
                 id='2'
                 name='men'
@@ -62,7 +62,7 @@ export class HeaderNavigation extends Component {
                 </button>
                 </NavLink>
 
-                <NavLink exact to='/' className='navlink'>
+                <NavLink exact to='/productslist' className='navlink'>
                 <button
                 id='3'
                 name='kids'

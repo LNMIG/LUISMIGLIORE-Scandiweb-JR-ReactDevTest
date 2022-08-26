@@ -6,7 +6,7 @@ class ContinueShopping extends Component {
     render () {
         return (
             <div className="continueShoppingContainer">
-                <Link className="continueShopping" to={'/'}>Continue shopping </Link>
+                <Link className="continueShopping" to={'/productslist'}>Continue shopping </Link>
             </div>
         )
     }
