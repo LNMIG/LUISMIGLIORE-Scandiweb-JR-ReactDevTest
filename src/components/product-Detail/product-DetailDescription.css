@@ -21,5 +21,5 @@
     border-radius: 0.25rem;
 }
 .productDetailContainer .second .grouped .description::-webkit-scrollbar-track {
-    background: #999;
+    background: #5ECE7B; /* #999; */
 }

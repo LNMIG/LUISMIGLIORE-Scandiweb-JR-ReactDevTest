@@ -1,5 +1,5 @@
 .productDetailContainer .first {
-    width: 7rem;
+    width: 5rem;
     min-height: 28rem;
     max-height: 28rem;
     padding-top: 0.3125rem;
@@ -25,7 +25,7 @@
     border-radius: 0.25rem;
 }
 .productDetailContainer .first::-webkit-scrollbar-track {
-    background: #999;
+    background: #ffffff; /* #999; */
 }
 .productDetailContainer .first .button {
     width: 5rem;
@@ -38,7 +38,8 @@
     cursor: pointer;
 }
 .productDetailContainer .first .button:hover {
-    box-shadow: 0px 0px 8px grey;
+    /* box-shadow: 0px 0px 8px grey; */
+    border: 2px solid #ffffff;
 }
 .productDetailContainer .first .button .imageSide {
     width: 100%;
