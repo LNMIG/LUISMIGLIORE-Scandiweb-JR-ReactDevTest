@@ -1,7 +1,8 @@
 .productDetailContainer .second .grouped .description{
     width: 100%;
-    height: 6.4375rem;
-    overflow-y: scroll;
+    min-height: 6.4375rem;
+    max-height: 6.4375rem;
+    overflow: hidden auto;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -10,4 +11,15 @@
     line-height: 1.8rem;
 
     color: #1D1F22;
+}
+.productDetailContainer .second .grouped .description::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 1rem;
+}
+.productDetailContainer .second .grouped .description::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 0.25rem;
+}
+.productDetailContainer .second .grouped .description::-webkit-scrollbar-track {
+    background: #999;
 }
