@@ -16,7 +16,6 @@ class PriceShower extends Component {
     }
 
     currency = () => {
-        console.log(this.props.currentCurrency)
         return this.props.currentCurrency.length===0 ? [{label: "USD", symbol: "$"}] : this.props.currentCurrency
     }
 

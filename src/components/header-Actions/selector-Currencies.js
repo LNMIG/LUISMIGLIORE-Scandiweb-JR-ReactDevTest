@@ -4,6 +4,7 @@ import getAllCurrencies from '../../redux/actions/getAllCurrencies.js';
 import postSelectedCurrency from '../../redux/actions/postSelectedCurrency.js';
 import Button from './selector-Button';
 import CurrencyList from './selector-CurrencyList';
+import postBlocker from '../../redux/actions/postBlocker.js';
 import '../header-Actions/selector-Currencies.css'
 
 class CurrencySelector extends Component {
@@ -20,7 +21,7 @@ class CurrencySelector extends Component {
     }
 
     onClickHandler = () => {
-        this.setState(prevState => ({...prevState, isOpen: !this.state.isOpen}))
+        if (!this.props.blocker) this.setState(prevState => ({...prevState, isOpen: !this.state.isOpen}))
     }
     
     keyHandler = (event) => {
@@ -90,6 +91,7 @@ class CurrencySelector extends Component {
 const mapStateToProps = (state) => {
     return {
         allCurrencies: state.allCurrencies,
+        blocker: state.blocker,
   };
 }
 
@@ -97,6 +99,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getAllCurrencies: () => dispatch(getAllCurrencies()),
         postSelectedCurrency: (selected) => dispatch(postSelectedCurrency(selected)),
+        postBlocker: () => dispatch(postBlocker()),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencySelector);

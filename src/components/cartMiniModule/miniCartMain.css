@@ -2,7 +2,7 @@
     min-width: 20.25rem;
     max-width: fit-content;
     /* height: fit-content; */
-    min-height: 30rem;
+    min-height: fit-content; /*30rem;*/
     max-height: 30rem;
     padding: 2rem 0rem;
     gap: 2rem;

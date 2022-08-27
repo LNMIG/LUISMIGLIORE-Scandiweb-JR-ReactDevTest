@@ -15,7 +15,6 @@ export class CartButton extends Component {
     }
 
     onClick = (event) => {
-        console.log(event.target)
         this.props.postBlocker()
         this.setState(prevState => ({...prevState, isOpen: !this.state.isOpen}));
     }
@@ -27,15 +26,19 @@ export class CartButton extends Component {
       }
 
     clickOutsideHandler = (event) => {
-        console.log(event.target)
-        if(event.target.className === 'headerDesktopContainer' || event.target.className === 'blocker'){
-            this.props.postBlocker()
-            document.removeEventListener("mousedown", this.clickOutsideHandler);
+        if(event.target.className === 'headerDesktopContainer' || event.target.className === 'blocker') {
+            if(this.props.blocker) {
+                this.props.postBlocker()
+                document.removeEventListener("mousedown", this.clickOutsideHandler);
+            }
         }
     }
 
     componentDidUpdate(prevProps, prevState) {
         document.addEventListener("mousedown", this.clickOutsideHandler);
+    }
+    componentWillUnmount () {
+        document.removeEventListener("mousedown", this.clickOutsideHandler);
     }
 
     render () {

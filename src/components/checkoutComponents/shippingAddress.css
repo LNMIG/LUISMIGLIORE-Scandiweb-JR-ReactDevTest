@@ -67,6 +67,7 @@
 .shippingAddressWrapper .selectsContainer .select {
     width: 30%;
     height: 2.5rem;
+    padding-left: 1rem;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -80,6 +81,7 @@
 .shippingAddressWrapper .selectsContainer .zipcode {
     width: 30%;
     height: 2rem;
+    padding-left: 1rem;
 
     font-family: 'Roboto';
     font-style: normal;
