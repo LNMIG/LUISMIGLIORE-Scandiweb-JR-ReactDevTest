@@ -7,11 +7,11 @@ import Blocker from '../../components/blocker/blocker.js';
 import HeaderDesktop from '../../components/header-Desktop/header-Desktop';
 import './productList.css'
 
-export class Category extends Component {
+export class ProductsList extends Component {
     
     render() {
         return (
-            <>
+            <div className='productListWrapper'>
             < HeaderDesktop />
             <div className="mainContainer">
                 <CategorySelector />
@@ -21,7 +21,7 @@ export class Category extends Component {
                 </div>
                 { this.props.blocker ? < Blocker/> : null }
             </div>
-            </>
+            </div>
         );
     };
 };
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
         blocker: state.blocker,
     }
 }
-export default connect(mapStateToProps, null)(Category)
+export default connect(mapStateToProps, null)(ProductsList)
