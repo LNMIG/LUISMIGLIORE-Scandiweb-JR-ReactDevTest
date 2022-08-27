@@ -11,3 +11,14 @@
     padding-bottom: 3rem;
     background: #FFFFFF;
 }
+.blocker {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    height: max-content;
+    top: 5.1rem;
+    left: 0rem;
+    z-index: 5000;
+    display: block;
+    background-color: rgba(0,0,0,0.4);
+}
