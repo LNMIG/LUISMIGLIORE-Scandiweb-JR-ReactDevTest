@@ -114,7 +114,12 @@ class ProductDetail extends Component {
                         < ProductDetailBrandName brand={currentProductDetails.brand} name={this.props.productDetails.name}/>
                         < ProductDetailAttribute attributes={currentProductDetails.attributes} state={this.state} onClickAttribute={this.onClickAttribute}/>
                         < ProductDetailPrice currentCurrency={currentCurrency} prices={currentProductDetails.prices} />
-                        < ProductDetailAddToCart onClick={this.onClickAddToCart} />
+                        
+                        { currentProductDetails.inStock
+                          ? < ProductDetailAddToCart onClick={this.onClickAddToCart} disabled={false} placeholder={"ADD TOCART"}/>
+                          : < ProductDetailAddToCart onClick={this.onClickAddToCart} disabled={true} placeholder={"OUT OF STOCK"}/>
+                        }
+                        
                         < ProductDetailDescription description={currentProductDetails.description} />
                     </div>
                 </div>
