@@ -6,7 +6,13 @@ class ProductDetailAddToCart extends Component {
     render () {
         
         return (
-            <button className='button' onClick={this.props.onClick}>ADD TO CART</button>
+            <button 
+                className={this.props.disabled ? 'notInStock' : 'inStock'}
+                onClick={this.props.onClick} 
+                disabled={this.props.disabled}
+            >
+                {this.props.placeholder}
+            </button>
         )
     }
 }
