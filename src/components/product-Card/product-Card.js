@@ -10,6 +10,14 @@ import './product-Card.css';
 
 class ProductCard extends Component {
 
+    constructor(props){
+        super(props);
+        this.state={
+            entering: false,
+            productId: ''
+        }
+    }
+
     addAttrByDefault = (addAttByDefault) => {
         addAttByDefault.attByDefault = addAttByDefault.attributes.map(each => {return {id: each.id, value: each.items[0].value}})
         addAttByDefault.idForDeletion = uuidv4()
@@ -19,7 +27,7 @@ class ProductCard extends Component {
     onClickNavigation = (productId) => {
         this.props.getProductById(productId)
     }
-    onClickCartButton = (e,selectedProductToAdd) => {        
+    onClickCartButton = (selectedProductToAdd) => {
         let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(selectedProductToAdd))
         let copyInDeepPastProducts = this.props.postedProductsToCart.length!==0
             ? JSON.parse(JSON.stringify(this.props.postedProductsToCart))
@@ -30,6 +38,7 @@ class ProductCard extends Component {
         if (copyInDeepSelectedProduct.attributes && copyInDeepSelectedProduct.attributes.length > 0) {
             this.props.postProductToCart(copyInDeepPastProducts, this.addAttrByDefault(copyInDeepSelectedProduct))
         } else {
+            copyInDeepSelectedProduct.attByDefault = []
             copyInDeepSelectedProduct.idForDeletion = uuidv4()
             copyInDeepSelectedProduct.quantity = 1
             this.props.postProductToCart(copyInDeepPastProducts, copyInDeepSelectedProduct)
@@ -58,10 +67,20 @@ class ProductCard extends Component {
             )
         }
 
+        const showCartButton = (e, productId) => {
+            e.preventDefault()
+            this.setState({entering: !this.state.entering, productId: productId || ''})
+
+        }
+        
         return (
             <div className='wraperProductCard'>
                     {this.props.paginationData.map(product => {return (
-                        <div className="productCardMain" key={product.id}>
+                        <div    className="productCardMain" 
+                                key={product.id} 
+                                onMouseEnter={(e)=>showCartButton(e,product.id)} 
+                                onMouseLeave={(e)=>showCartButton(e)}
+                        >
                             <NavLink 
                                 onClick={()=> this.onClickNavigation(product.id)} 
                                 to={`/productdetails/${product.id}`} 
@@ -86,10 +105,10 @@ class ProductCard extends Component {
                                 </div>
                             </NavLink>
 
-                            <div  className='circleIcon'>
+                            <div className={this.state.entering && this.state.productId === product.id ? 'circleIcon' : ''}>
                                 {product.inStock
                                 ?
-                                    <button className='surface' id="cartButton" onClick={(e)=>this.onClickCartButton(e, product)}>
+                                    <button className='surface' id="cartButton" onClick={()=>this.onClickCartButton(product)}>
                                         <img src={Vector} alt='' className='vector' id="cartButton" />
                                     </button>
                                 :
