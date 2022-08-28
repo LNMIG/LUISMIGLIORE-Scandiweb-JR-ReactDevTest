@@ -21,11 +21,11 @@
     height: 1rem;
 }
 .productDetailContainer .first::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #5ECE7B; /*#333;*/
     border-radius: 0.25rem;
 }
 .productDetailContainer .first::-webkit-scrollbar-track {
-    background: #ffffff; /* #999; */
+    background: #d5eeff; /* #999; */
 }
 .productDetailContainer .first .button {
     width: 5rem;

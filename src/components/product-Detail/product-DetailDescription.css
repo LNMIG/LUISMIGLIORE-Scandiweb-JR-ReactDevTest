@@ -17,9 +17,9 @@
     height: 1rem;
 }
 .productDetailContainer .second .grouped .description::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #5ECE7B; /*#333;*/
     border-radius: 0.25rem;
 }
 .productDetailContainer .second .grouped .description::-webkit-scrollbar-track {
-    background: #5ECE7B; /* #999; */
+    background: #d5eeff;
 }
