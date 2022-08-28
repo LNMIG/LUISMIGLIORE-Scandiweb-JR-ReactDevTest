@@ -16,11 +16,10 @@ class ProductCard extends Component {
         addAttByDefault.quantity = 1
         return addAttByDefault
     }
-
     onClickNavigation = (productId) => {
         this.props.getProductById(productId)
     }
-    onClickCartButton = (selectedProductToAdd) => {
+    onClickCartButton = (e,selectedProductToAdd) => {        
         let copyInDeepSelectedProduct = JSON.parse(JSON.stringify(selectedProductToAdd))
         let copyInDeepPastProducts = this.props.postedProductsToCart.length!==0
             ? JSON.parse(JSON.stringify(this.props.postedProductsToCart))
@@ -62,33 +61,41 @@ class ProductCard extends Component {
         return (
             <div className='wraperProductCard'>
                     {this.props.paginationData.map(product => {return (
-                        <div className={product.inStock ? 'productCardContainer' : 'outOfStock'} key={product.id}>
-                        <div className='imageContainer'>
-                            <NavLink to={product.inStock ? `/productdetails/${product.id}` : ``} className="navlink" onClick={()=>this.onClickNavigation(product.id)}>
-                                <img src={product.gallery[0]} alt="view here" className='image'/>
-                                {!product.inStock ? <div className='noStock'> OUT OF STOCK</div> : ''}
+                        <div className="productCardMain" key={product.id}>
+                            <NavLink 
+                                onClick={()=> this.onClickNavigation(product.id)} 
+                                to={`/productdetails/${product.id}`} 
+                                className="navlink" 
+                                key={product.id}
+                            >
+                                <div className={product.inStock ? 'productCardContainer' : 'outOfStock'}>
+                                    <div className='imageContainer'>
+                                        <img src={product.gallery[0]} alt="view here" className='image'/>
+                                        {!product.inStock ? <div className='noStock'> OUT OF STOCK</div> : ''}
+                                     </div>
+
+                                    <div className='spacer'></div>
+                                    <div className='content'>
+                                        <div className='title'>{`${product.brand} ${product.name}`}</div>
+                                        <div className='title'>
+                                            <div className='element'>
+                                                {`${currentCurrency[0].symbol} ${price(product.prices)}`}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </NavLink>
+
                             <div  className='circleIcon'>
                                 {product.inStock
                                 ?
-                                    <button className='surface' onClick={()=>this.onClickCartButton(product)}>
-                                        <img src={Vector} alt='' className='vector' />
+                                    <button className='surface' id="cartButton" onClick={(e)=>this.onClickCartButton(e, product)}>
+                                        <img src={Vector} alt='' className='vector' id="cartButton" />
                                     </button>
                                 :
-                                 ''
+                                ''
                                 }
                             </div>
-                        </div>
-
-                        <div className='spacer'></div>
-                        <div className='content'>
-                            <div className='title'>{`${product.brand} ${product.name}`}</div>
-                            <div className='title'>
-                                <div className='element'>
-                                    {`${currentCurrency[0].symbol} ${price(product.prices)}`}
-                                </div>
-                            </div>
-                        </div>
                         </div>
                     )})}
             </div>
