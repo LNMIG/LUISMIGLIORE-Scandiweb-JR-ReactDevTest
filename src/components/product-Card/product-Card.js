@@ -69,8 +69,11 @@ class ProductCard extends Component {
 
         const showCartButton = (e, productId) => {
             e.preventDefault()
-            this.setState({entering: !this.state.entering, productId: productId || ''})
-
+            this.setState({entering: true, productId: productId || ''})
+        }
+        const hideCartButton = (e, productId) => {
+            e.preventDefault()
+            this.setState({entering: false, productId: productId || ''})
         }
         
         return (
@@ -78,8 +81,8 @@ class ProductCard extends Component {
                     {this.props.paginationData.map(product => {return (
                         <div    className="productCardMain" 
                                 key={product.id} 
-                                onMouseEnter={(e)=>showCartButton(e,product.id)} 
-                                onMouseLeave={(e)=>showCartButton(e)}
+                                onMouseEnter={(e)=>showCartButton(e, product.id)} 
+                                onMouseLeave={(e)=>hideCartButton(e, product.id)}
                         >
                             <NavLink 
                                 onClick={()=> this.onClickNavigation(product.id)} 

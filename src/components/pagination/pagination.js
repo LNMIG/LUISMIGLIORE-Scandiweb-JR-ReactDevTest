@@ -35,7 +35,6 @@ class Pagination extends Component {
     }
 
     componentDidUpdate (prevProps, prevState) {
-
         if (this.props.postedCurrentCategory !== prevProps.postedCurrentCategory) {
             sessionStorage.setItem('currentPage', JSON.stringify(1))
         }
