@@ -9,7 +9,7 @@ class Landing extends Component {
             <div className="landingContainer">
                 <h1>WELCOME TO</h1>
                 <img src={Logo} alt='logo goes here' className="logoimage"/>
-                <Link className="letsGoShopping" to={'/productslist'}>Lets go shopping!</Link>
+                <Link className="letsGoShopping" to={'/productslist/all'}>Lets go shopping!</Link>
             </div>
         )
     }
