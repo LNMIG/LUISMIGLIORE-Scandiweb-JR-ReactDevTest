@@ -31,20 +31,35 @@ class Pagination extends Component {
     }
 
     componentDidMount() {
-        if(!JSON.parse(sessionStorage.getItem('currentPage'))) sessionStorage.setItem('currentPage', JSON.stringify(1))
+        let currentCategory = sessionStorage.getItem('postedCurrentCategory')
+            ? JSON.parse(sessionStorage.getItem('postedCurrentCategory')).currentCategory
+            : 'all'
+        
+            if(!JSON.parse(sessionStorage.getItem('currentPage'))) {
+                sessionStorage.setItem('currentPage', JSON.stringify({page: 1, category: currentCategory}))
+            }
     }
 
     componentDidUpdate (prevProps, prevState) {
+        let currentCategory = sessionStorage.getItem('postedCurrentCategory')
+            ? JSON.parse(sessionStorage.getItem('postedCurrentCategory')).currentCategory
+            : 'all'
+        let savedCategory = sessionStorage.getItem('currentPage')
+            ? JSON.parse(sessionStorage.getItem('currentPage')).category
+            : 'all'
+        let setToBasic = false
+
         if (this.props.postedCurrentCategory !== prevProps.postedCurrentCategory) {
-            sessionStorage.setItem('currentPage', JSON.stringify(1))
-        }
+            sessionStorage.setItem('currentPage', JSON.stringify({page: 1, category: currentCategory}))
+        } 
+        if (currentCategory !== savedCategory) setToBasic = true
 
         if (this.props.productsByCategory !== prevProps.productsByCategory) {
             let existNPage = JSON.parse(sessionStorage.getItem('currentPage'))
             let existPState = JSON.parse(sessionStorage.getItem('currentPageState'))
             this.setState(state => ({...state,  
                 counter: this.state.counter + 1,
-                currentpage: existNPage ? existNPage : 1,
+                currentpage: existNPage && setToBasic ? 1 : existNPage.page,
                 numberOfPages: 0,
                 localProductsByCategory: this.props.productsByCategory,
                 previous: existPState ? existPState.previous : false,
@@ -72,7 +87,7 @@ class Pagination extends Component {
                 sessionStorage.setItem('currentPageState', JSON.stringify({previous: true, next: false}))
             }
             this.onSlice(this.state.itemsPerPage, this.state.currentpage, this.state.localProductsByCategory)
-            sessionStorage.setItem('currentPage', JSON.stringify(this.state.currentpage))
+            sessionStorage.setItem('currentPage', JSON.stringify({page: this.state.currentpage, category: currentCategory}))
         }
     }
 
