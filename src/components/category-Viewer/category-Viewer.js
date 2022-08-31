@@ -26,7 +26,7 @@ class CategoryViewer extends Component {
     }
 
     render () {
-      return <div className='currentCategoryViewer'>{this.state.currentCategory}</div>
+      return <div className='currentCategoryViewer'>Showing "{this.state.currentCategory}"</div>
     };
 }
 
