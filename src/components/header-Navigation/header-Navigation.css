@@ -25,7 +25,6 @@
 
     flex-grow: 1;
 }
-
 .headerNavigationClass1 {
     width: auto;
     height: 3.3125rem;
@@ -34,37 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-transform: uppercase;
-
-    background: #FFFFFF;
-    border-bottom: 3px solid  #5ECE7B;
-    /* flex-grow: 1; */
-}
-.headerNavigationClass1:hover {
-    cursor: pointer;
-}
-.headerNavigationClass1 .nothing{
-    display: none;
-}
-.headerNavigationClass1 .showCategoryList{
-    width: 6rem;
-    height: fit-content;
-
-    position: absolute;
-    top: 3.875rem;
-    z-index: 110000;
-
-    background: #ffffff;
-    box-shadow: 0 0 15px 0 grey;
-}
-
-.headerNavigationClass1 .buttonUp {
-    width: 100%;
-    height: 100%;
     
-    display: flex;
-    align-items: flex-start;
-
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 600;
@@ -72,25 +41,41 @@
     line-height: 120%;
     color: #5ECE7B;
 
-    background: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+
+    background: #FFFFFF;
     border: none;
+    border-bottom: 3px solid  #5ECE7B;
     
+    flex-grow: 1;
+}
+.headerNavigationClass1:hover {
     cursor: pointer;
 }
-
 .headerNavigationClass2 {
-    width: fit-content;
+    width: auto;
     height: 3.3125rem;
     padding: 0px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 120%;
+    color: #1D1F22;
+
     text-align: center;
     text-transform: uppercase;
 
     background: #FFFFFF;
-    /* flex-grow: 1; */
+    border: none;
+
+    flex-grow: 1;
 }
 .headerNavigationClass2:hover {
     border-bottom: 1px solid silver;
@@ -100,34 +85,6 @@
       #1a1b1b,
       transparent 100%
     ) 5;
-}
-.headerNavigationClass2 .showCategoryList{
-    width: 6rem;
-    height: fit-content;
-
-    position: absolute;
-    top: 3.875rem;
-    z-index: 110000;
-
-    background: #ffffff;
-    box-shadow: 0 0 15px 0 grey;
-}
-.headerNavigationClass2 .buttonDown {
-    width: 100%;
-    height: 100%;
-    
-    display: flex;
-    align-items: flex-start;
-
-    font-family: 'Raleway';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 120%;
-    color: #1D1F22;
-
-    background: #ffffff;
-    border: none;
 
     cursor: pointer;
 }
